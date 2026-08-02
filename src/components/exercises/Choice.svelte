@@ -11,6 +11,19 @@
   let correct: Record<string, boolean> = {}
   let wrongPick: Record<string, string> = {}
 
+  // Antwort-Optionen je Frage einmalig mischen (frische Reihenfolge pro Aufgabe).
+  function shuffle<T>(arr: T[]): T[] {
+    const a = [...arr]
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[a[i], a[j]] = [a[j], a[i]]
+    }
+    return a
+  }
+  const options: Record<string, string[]> = Object.fromEntries(
+    exercise.questions.map((q) => [q.id, shuffle(q.options)])
+  )
+
   function choose(qid: string, opt: string) {
     const q = exercise.questions.find((x) => x.id === qid)
     if (!q || correct[qid]) return
@@ -47,7 +60,7 @@
         {/each}
       </div>
       <div class="opts">
-        {#each q.options as opt}
+        {#each options[q.id] as opt}
           <button
             class="opt"
             class:correct={correct[q.id] && chosen[q.id] === opt}

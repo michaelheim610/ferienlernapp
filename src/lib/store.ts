@@ -5,6 +5,16 @@ export interface Progress {
   solved: Record<string, boolean> // exerciseId -> true
   stars: number
   soundOn: boolean
+  streak: number // Tage-in-Folge-Serie
+  lastPlayed?: string // YYYY-MM-DD (lokal), letzter Uebungstag
+}
+
+// Lokales Datum als YYYY-MM-DD (nicht UTC, damit der Tageswechsel stimmt).
+function localDate(d = new Date()): string {
+  const y = d.getFullYear()
+  const m = String(d.getMonth() + 1).padStart(2, '0')
+  const day = String(d.getDate()).padStart(2, '0')
+  return `${y}-${m}-${day}`
 }
 
 function keyFor(profileId: string): string {
@@ -20,13 +30,15 @@ function loadFor(profileId: string | null): Progress {
       return {
         solved: p.solved ?? {},
         stars: p.stars ?? 0,
-        soundOn: p.soundOn ?? true
+        soundOn: p.soundOn ?? true,
+        streak: p.streak ?? 0,
+        lastPlayed: p.lastPlayed
       }
     }
   } catch (e) {
     // defekter Speicher -> frisch starten
   }
-  return { solved: {}, stars: 0, soundOn: true }
+  return { solved: {}, stars: 0, soundOn: true, streak: 0 }
 }
 
 // Welches Profil ist gerade aktiv (bestimmt den Speicher-Schluessel).
@@ -57,10 +69,19 @@ function createProgress() {
       store.update((p) => {
         if (!p.solved[exerciseId]) {
           firstTime = true
+          // Lern-Serie aktualisieren
+          const today = localDate()
+          let streak = p.streak
+          if (p.lastPlayed !== today) {
+            const yest = localDate(new Date(Date.now() - 86400000))
+            streak = p.lastPlayed === yest ? p.streak + 1 : 1
+          }
           return {
             ...p,
             solved: { ...p.solved, [exerciseId]: true },
-            stars: p.stars + starReward
+            stars: p.stars + starReward,
+            streak,
+            lastPlayed: today
           }
         }
         return p
@@ -79,7 +100,7 @@ function createProgress() {
       store.update((p) => ({ ...p, soundOn: !p.soundOn }))
     },
     reset() {
-      store.set({ solved: {}, stars: 0, soundOn: true })
+      store.set({ solved: {}, stars: 0, soundOn: true, streak: 0 })
     }
   }
 }

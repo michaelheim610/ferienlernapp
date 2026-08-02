@@ -1,15 +1,17 @@
 <script lang="ts">
   import { subjects, topicsOf } from '../../data/topics'
-  import { goSubject, goLeaderboard } from '../../lib/nav'
+  import { goSubject, goLeaderboard, goCollection } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { profiles } from '../../lib/profiles'
   import { setSoundEnabled } from '../../lib/sound'
+  import { nextCollectible } from '../../lib/collectibles'
   import Astronaut from '../ui/Astronaut.svelte'
   import ProgressBar from '../ui/ProgressBar.svelte'
   import SyncBadge from '../ui/SyncBadge.svelte'
 
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
   $: isCloud = !!active?.classCode
+  $: next = nextCollectible($progress.stars)
 
   function switchProfile() {
     profiles.clearActive()
@@ -37,6 +39,9 @@
       <span class="sw">⇄</span>
     </button>
     <SyncBadge />
+    {#if $progress.streak > 1}
+      <span class="streak-badge" title="Tage in Folge geübt">🔥 {$progress.streak}</span>
+    {/if}
     <span class="spacer"></span>
     <span class="star-badge">⭐ {$progress.stars}</span>
     <button class="iconbtn" on:click={toggleSound} aria-label="Ton an/aus">
@@ -62,11 +67,14 @@
     {/each}
   </div>
 
-  {#if isCloud}
-    <button class="class-btn" on:click={goLeaderboard}>
-      🏆 Klassen-Sterne ansehen
+  <div class="extras">
+    <button class="extra-btn collection" on:click={goCollection}>
+      🌌 Sammlung{#if next}<span class="goal">noch {next.stars - $progress.stars} ⭐ bis {next.emoji}</span>{/if}
     </button>
-  {/if}
+    {#if isCloud}
+      <button class="extra-btn class" on:click={goLeaderboard}>🏆 Klassen-Sterne</button>
+    {/if}
+  </div>
 </div>
 
 <style>
@@ -114,16 +122,41 @@
   .tile .name { font-size: 1.7rem; font-weight: 800; }
   .tile .bar { width: 100%; }
   .tile .frac { font-weight: 800; opacity: 0.95; }
-  .class-btn {
-    margin: 18px auto 0;
-    display: block;
-    background: linear-gradient(180deg, var(--gold), #e69500);
-    color: #3a2a00;
+
+  .streak-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
     font-weight: 800;
-    font-size: 1.15rem;
-    padding: 14px 24px;
+    color: #fff;
+    background: linear-gradient(180deg, #ff7a59, #ff5a5f);
+    padding: 6px 12px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+    font-size: 1rem;
+  }
+
+  .extras {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .extra-btn {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.1rem;
+    padding: 12px 22px;
     border-radius: 999px;
     box-shadow: var(--shadow-sm);
   }
-  .class-btn:active { transform: scale(0.97); }
+  .extra-btn:active { transform: scale(0.97); }
+  .extra-btn.collection { background: linear-gradient(180deg, var(--violet), var(--violet-dark)); }
+  .extra-btn.class { background: linear-gradient(180deg, var(--gold), #e69500); color: #3a2a00; }
+  .extra-btn .goal { font-size: 0.8rem; font-weight: 700; opacity: 0.9; }
 </style>

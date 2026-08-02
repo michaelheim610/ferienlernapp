@@ -13,6 +13,7 @@
   import ExerciseScreen from './components/screens/ExerciseScreen.svelte'
   import Reward from './components/screens/Reward.svelte'
   import Leaderboard from './components/screens/Leaderboard.svelte'
+  import Collection from './components/screens/Collection.svelte'
 
   // Einmalige Migration: alter Einzel-Fortschritt -> als Profil "Lisa" uebernehmen.
   onMount(() => {
@@ -76,6 +77,8 @@
   <Reward subject={$nav.subject} topicId={$nav.topicId} />
 {:else if $nav.view === 'leaderboard'}
   <Leaderboard />
+{:else if $nav.view === 'collection'}
+  <Collection />
 {:else}
   <Home />
 {/if}
