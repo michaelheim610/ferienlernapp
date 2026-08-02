@@ -227,7 +227,7 @@
       <input
         class="name-in"
         type="text"
-        placeholder="z. B. LISA3"
+        placeholder="Code eingeben"
         maxlength="12"
         autocapitalize="characters"
         autocomplete="off"
