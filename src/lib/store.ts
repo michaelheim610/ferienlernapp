@@ -1,17 +1,20 @@
 import { writable } from 'svelte/store'
 
-// Fortschritt: welche Aufgaben (per exerciseId) sind geschafft + gesammelte Sterne.
+// Fortschritt pro Profil: welche Aufgaben (per exerciseId) sind geschafft + Sterne.
 export interface Progress {
   solved: Record<string, boolean> // exerciseId -> true
   stars: number
   soundOn: boolean
 }
 
-const KEY = 'ferienlernapp.progress.v1'
+function keyFor(profileId: string): string {
+  return `ferienlernapp.progress.v1.${profileId}`
+}
 
-function load(): Progress {
+function loadFor(profileId: string | null): Progress {
+  if (!profileId) return { solved: {}, stars: 0, soundOn: true }
   try {
-    const raw = localStorage.getItem(KEY)
+    const raw = localStorage.getItem(keyFor(profileId))
     if (raw) {
       const p = JSON.parse(raw) as Partial<Progress>
       return {
@@ -21,24 +24,33 @@ function load(): Progress {
       }
     }
   } catch (e) {
-    // Bei defektem Speicher einfach frisch starten.
+    // defekter Speicher -> frisch starten
   }
   return { solved: {}, stars: 0, soundOn: true }
 }
 
+// Welches Profil ist gerade aktiv (bestimmt den Speicher-Schluessel).
+let activeProfileId: string | null = null
+
 function createProgress() {
-  const store = writable<Progress>(load())
+  const store = writable<Progress>(loadFor(null))
 
   store.subscribe((value) => {
+    if (!activeProfileId) return
     try {
-      localStorage.setItem(KEY, JSON.stringify(value))
+      localStorage.setItem(keyFor(activeProfileId), JSON.stringify(value))
     } catch (e) {
-      // Speicher voll o.ae. -> ignorieren, App laeuft weiter.
+      // Speicher voll o.ae. -> ignorieren
     }
   })
 
   return {
     subscribe: store.subscribe,
+    /** Auf ein Profil umschalten und dessen Fortschritt laden. */
+    useProfile(profileId: string) {
+      activeProfileId = profileId
+      store.set(loadFor(profileId))
+    },
     /** Aufgabe als geschafft markieren. Gibt zurueck, ob es das erste Mal war. */
     solve(exerciseId: string, starReward = 1): boolean {
       let firstTime = false

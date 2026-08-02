@@ -2,9 +2,16 @@
   import { subjects, topicsOf } from '../../data/topics'
   import { goSubject } from '../../lib/nav'
   import { progress } from '../../lib/store'
+  import { profiles } from '../../lib/profiles'
   import { setSoundEnabled } from '../../lib/sound'
   import Astronaut from '../ui/Astronaut.svelte'
   import ProgressBar from '../ui/ProgressBar.svelte'
+
+  $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
+
+  function switchProfile() {
+    profiles.clearActive()
+  }
 
   function subjectProgress(subjectId: 'mathe' | 'deutsch'): number {
     const topics = topicsOf(subjectId)
@@ -22,8 +29,13 @@
 
 <div class="screen home">
   <div class="topbar">
-    <span class="star-badge">⭐ {$progress.stars}</span>
+    <button class="profile-chip" on:click={switchProfile} aria-label="Profil wechseln">
+      <span class="pa">{active?.avatar ?? '🙂'}</span>
+      <span class="pn">{active?.name ?? ''}</span>
+      <span class="sw">⇄</span>
+    </button>
     <span class="spacer"></span>
+    <span class="star-badge">⭐ {$progress.stars}</span>
     <button class="iconbtn" on:click={toggleSound} aria-label="Ton an/aus">
       {$progress.soundOn ? '🔊' : '🔇'}
     </button>
@@ -32,7 +44,7 @@
   <header class="hero">
     <Astronaut size={110} />
     <h1 class="space-title">Startklar für die<br />3. Klasse?</h1>
-    <p class="space-sub">Hallo Lisa! Wähle dein Fach 🚀</p>
+    <p class="space-sub">Hallo {active?.name ?? ''}! Wähle dein Fach 🚀</p>
   </header>
 
   <div class="tiles">
@@ -50,6 +62,22 @@
 
 <style>
   .home { align-items: stretch; }
+  .profile-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.16);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    padding: 6px 14px 6px 8px;
+    border-radius: 999px;
+    font-weight: 800;
+    box-shadow: var(--shadow-sm);
+  }
+  .profile-chip:active { transform: scale(0.96); }
+  .profile-chip .pa { font-size: 1.5rem; }
+  .profile-chip .pn { font-size: 1.05rem; max-width: 40vw; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .profile-chip .sw { opacity: 0.8; font-size: 1rem; }
   .hero { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; margin: 6px 0 22px; }
   .hero h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); line-height: 1.1; }
   .tiles {
