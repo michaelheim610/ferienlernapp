@@ -3,7 +3,8 @@
   import { nav } from './lib/nav'
   import { progress } from './lib/store'
   import { profiles } from './lib/profiles'
-  import { startCloudSync, stopCloudSync } from './lib/sync'
+  import { startCloudSync, stopCloudSync, initConnectivity } from './lib/sync'
+  import { initUpdates, needRefresh, applyUpdate } from './lib/updates'
   import { setSoundEnabled } from './lib/sound'
   import Starfield from './components/ui/Starfield.svelte'
   import ProfileSelect from './components/screens/ProfileSelect.svelte'
@@ -31,6 +32,9 @@
       // Migration ist optional - Fehler ignorieren
     }
 
+    initConnectivity()
+    initUpdates()
+
     const unsub = progress.subscribe((p) => setSoundEnabled(p.soundOn))
     return unsub
   })
@@ -54,6 +58,12 @@
 
 <Starfield />
 
+{#if $needRefresh}
+  <button class="update-banner" on:click={applyUpdate}>
+    🚀 Neue Version verfügbar – tippen zum Aktualisieren
+  </button>
+{/if}
+
 {#if noProfile}
   <ProfileSelect />
 {:else if $nav.view === 'home'}
@@ -69,3 +79,25 @@
 {:else}
   <Home />
 {/if}
+
+<style>
+  .update-banner {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    top: max(10px, env(safe-area-inset-top));
+    z-index: 100;
+    margin: 0 auto;
+    max-width: 520px;
+    background: linear-gradient(180deg, var(--gold), #e69500);
+    color: #3a2a00;
+    font-weight: 800;
+    font-size: 1rem;
+    padding: 12px 16px;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    animation: pop 0.3s ease;
+  }
+  .update-banner:active { transform: scale(0.98); }
+</style>
+

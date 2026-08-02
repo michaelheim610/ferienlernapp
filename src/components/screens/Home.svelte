@@ -6,6 +6,7 @@
   import { setSoundEnabled } from '../../lib/sound'
   import Astronaut from '../ui/Astronaut.svelte'
   import ProgressBar from '../ui/ProgressBar.svelte'
+  import SyncBadge from '../ui/SyncBadge.svelte'
 
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
   $: isCloud = !!active?.classCode
@@ -35,6 +36,7 @@
       <span class="pn">{active?.name ?? ''}</span>
       <span class="sw">⇄</span>
     </button>
+    <SyncBadge />
     <span class="spacer"></span>
     <span class="star-badge">⭐ {$progress.stars}</span>
     <button class="iconbtn" on:click={toggleSound} aria-label="Ton an/aus">

@@ -108,7 +108,7 @@
       joinClassCode = ''
       goHome()
     } else if (res.error === 'WRONG_PIN') {
-      joinError = 'Dieser Name gibt es schon in der Klasse – aber der Code stimmt nicht.'
+      joinError = 'Diesen Spitznamen gibt es schon. Wenn das du bist: Code richtig eintippen. Sonst nimm einen anderen Namen.'
       newCode = ''
       playTry()
     } else if (res.error === 'OFFLINE') {

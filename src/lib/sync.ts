@@ -1,4 +1,4 @@
-import { get } from 'svelte/store'
+import { get, writable } from 'svelte/store'
 import { progress } from './store'
 import { profiles, type Profile } from './profiles'
 import { joinOrCreate, pushProgress, type CloudError } from './cloud'
@@ -6,43 +6,56 @@ import { joinOrCreate, pushProgress, type CloudError } from './cloud'
 // Verbindet den lokalen Fortschritt eines Cloud-Profils mit der Datenbank.
 // Lokal-first: offline laeuft alles weiter, bei Internet wird abgeglichen.
 
+export type SyncStatus = 'off' | 'syncing' | 'online' | 'offline'
+export const syncStatus = writable<SyncStatus>('off')
+
 let current: { cloudId: string; pin: string } | null = null
 let unsub: (() => void) | null = null
 let timer: ReturnType<typeof setTimeout> | null = null
-
-export type SyncStatus = 'off' | 'syncing' | 'online' | 'offline'
-let statusListener: ((s: SyncStatus) => void) | null = null
-export function onSyncStatus(cb: (s: SyncStatus) => void) {
-  statusListener = cb
-}
-function setStatus(s: SyncStatus) {
-  if (statusListener) statusListener(s)
-}
+let connectivityWired = false
 
 export function isCloudProfile(p: Profile | undefined): boolean {
   return !!(p && p.cloudId && p.classCode && p.code)
+}
+
+/** Einmalig: auf "wieder online" hoeren und dann sofort abgleichen. */
+export function initConnectivity() {
+  if (connectivityWired || typeof window === 'undefined') return
+  connectivityWired = true
+  window.addEventListener('online', () => {
+    if (current) {
+      syncStatus.set('syncing')
+      doPush()
+    }
+  })
+  window.addEventListener('offline', () => {
+    if (current) syncStatus.set('offline')
+  })
 }
 
 /** Beim Aktivieren eines Cloud-Profils: ziehen + zusammenfuehren + abonnieren. */
 export async function startCloudSync(profile: Profile): Promise<{ ok: boolean; error?: CloudError }> {
   stopCloudSync()
   if (!isCloudProfile(profile)) {
-    setStatus('off')
+    syncStatus.set('off')
     return { ok: false }
   }
-  setStatus('syncing')
+  // current sofort setzen, damit auch nach Offline-Start spaeter abgeglichen wird.
+  current = { cloudId: profile.cloudId!, pin: profile.code! }
+  syncStatus.set('syncing')
+
+  // Auf Aenderungen hoeren (auch wenn der erste Pull offline scheitert).
+  unsub = progress.subscribe(() => schedulePush())
+
   try {
     const cloud = await joinOrCreate(profile.classCode!, profile.name, profile.avatar, profile.code!)
     progress.mergeSolved(cloud.solved || {})
-    current = { cloudId: profile.cloudId!, pin: profile.code! }
-    setStatus('online')
-    // Zusammengefuehrten Stand gleich hochladen und auf Aenderungen hoeren.
+    syncStatus.set('online')
     schedulePush()
-    unsub = progress.subscribe(() => schedulePush())
     return { ok: true }
   } catch (e) {
-    // Offline o.ae. -> lokal weiterarbeiten, kein Fehler fuer das Kind.
-    setStatus('offline')
+    // Offline o.ae. -> lokal weiterarbeiten, spaeter erneut versuchen.
+    syncStatus.set('offline')
     return { ok: false, error: e as CloudError }
   }
 }
@@ -57,7 +70,7 @@ export function stopCloudSync() {
     timer = null
   }
   current = null
-  setStatus('off')
+  syncStatus.set('off')
 }
 
 function schedulePush() {
@@ -72,10 +85,10 @@ async function doPush() {
   try {
     const res = await pushProgress(current.cloudId, current.pin, solved)
     progress.mergeSolved(res.solved || {})
-    setStatus('online')
+    syncStatus.set('online')
   } catch (e) {
-    // Offline: spaeter erneut versuchen (bei naechster Aenderung).
-    setStatus('offline')
+    // Offline: bei naechster Aenderung oder "online"-Event erneut versuchen.
+    syncStatus.set('offline')
   }
 }
 
@@ -101,11 +114,4 @@ export async function joinClass(opts: {
   } catch (e) {
     return { ok: false, error: e as CloudError }
   }
-}
-
-// Aktuelles Cloud-Profil anhand des Stores finden (Hilfsfunktion).
-export function activeCloudProfile(): Profile | undefined {
-  const s = get(profiles)
-  const p = s.profiles.find((x) => x.id === s.activeId)
-  return isCloudProfile(p) ? p : undefined
 }
