@@ -5,6 +5,7 @@ export interface Profile {
   id: string
   name: string
   avatar: string
+  code?: string // 4-stelliger Geheimcode (weicher Geschwister-Schutz, kein echter Passwortschutz)
 }
 
 interface ProfilesState {
@@ -50,10 +51,10 @@ function createProfiles() {
   return {
     subscribe: store.subscribe,
     /** Neues Profil anlegen und direkt aktiv setzen. Gibt die neue id zurueck. */
-    add(name: string, avatar: string): string {
+    add(name: string, avatar: string, code = ''): string {
       const id = genId()
       store.update((s) => ({
-        profiles: [...s.profiles, { id, name: name.trim() || 'Kind', avatar }],
+        profiles: [...s.profiles, { id, name: name.trim() || 'Kind', avatar, code }],
         activeId: id
       }))
       return id
