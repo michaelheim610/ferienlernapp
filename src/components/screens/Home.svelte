@@ -1,6 +1,6 @@
 <script lang="ts">
   import { subjects, topicsOf } from '../../data/topics'
-  import { goSubject } from '../../lib/nav'
+  import { goSubject, goLeaderboard } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { profiles } from '../../lib/profiles'
   import { setSoundEnabled } from '../../lib/sound'
@@ -8,6 +8,7 @@
   import ProgressBar from '../ui/ProgressBar.svelte'
 
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
+  $: isCloud = !!active?.classCode
 
   function switchProfile() {
     profiles.clearActive()
@@ -58,6 +59,12 @@
       </button>
     {/each}
   </div>
+
+  {#if isCloud}
+    <button class="class-btn" on:click={goLeaderboard}>
+      🏆 Klassen-Sterne ansehen
+    </button>
+  {/if}
 </div>
 
 <style>
@@ -105,4 +112,16 @@
   .tile .name { font-size: 1.7rem; font-weight: 800; }
   .tile .bar { width: 100%; }
   .tile .frac { font-weight: 800; opacity: 0.95; }
+  .class-btn {
+    margin: 18px auto 0;
+    display: block;
+    background: linear-gradient(180deg, var(--gold), #e69500);
+    color: #3a2a00;
+    font-weight: 800;
+    font-size: 1.15rem;
+    padding: 14px 24px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+  }
+  .class-btn:active { transform: scale(0.97); }
 </style>

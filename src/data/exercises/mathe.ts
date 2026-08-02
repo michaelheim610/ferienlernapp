@@ -87,13 +87,13 @@ export const matheTopics: Topic[] = [
         max: 100,
         majorStep: 10,
         marks: [
-          { id: 'm1', value: 5 },
-          { id: 'm2', value: 15 },
-          { id: 'm3', value: 30 },
+          { id: 'm1', value: 3 },
+          { id: 'm2', value: 17 },
+          { id: 'm3', value: 24 },
           { id: 'm4', value: 45 },
-          { id: 'm5', value: 60 },
-          { id: 'm6', value: 75 },
-          { id: 'm7', value: 90 }
+          { id: 'm5', value: 58 },
+          { id: 'm6', value: 76 },
+          { id: 'm7', value: 92 }
         ]
       },
       {

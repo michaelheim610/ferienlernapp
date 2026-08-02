@@ -67,6 +67,14 @@ function createProgress() {
       })
       return firstTime
     },
+    /** Geloeste Aufgaben aus der Cloud zusammenfuehren (Union). Sterne = Anzahl. */
+    mergeSolved(incoming: Record<string, boolean>) {
+      store.update((p) => {
+        const solved = { ...p.solved }
+        for (const k in incoming) if (incoming[k]) solved[k] = true
+        return { ...p, solved, stars: Object.keys(solved).length }
+      })
+    },
     toggleSound() {
       store.update((p) => ({ ...p, soundOn: !p.soundOn }))
     },

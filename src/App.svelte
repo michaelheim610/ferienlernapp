@@ -3,6 +3,7 @@
   import { nav } from './lib/nav'
   import { progress } from './lib/store'
   import { profiles } from './lib/profiles'
+  import { startCloudSync, stopCloudSync } from './lib/sync'
   import { setSoundEnabled } from './lib/sound'
   import Starfield from './components/ui/Starfield.svelte'
   import ProfileSelect from './components/screens/ProfileSelect.svelte'
@@ -10,6 +11,7 @@
   import SubjectScreen from './components/screens/SubjectScreen.svelte'
   import ExerciseScreen from './components/screens/ExerciseScreen.svelte'
   import Reward from './components/screens/Reward.svelte'
+  import Leaderboard from './components/screens/Leaderboard.svelte'
 
   // Einmalige Migration: alter Einzel-Fortschritt -> als Profil "Lisa" uebernehmen.
   onMount(() => {
@@ -33,11 +35,18 @@
     return unsub
   })
 
-  // Fortschritt des aktiven Profils laden, sobald es wechselt.
+  // Fortschritt des aktiven Profils laden, sobald es wechselt (+ Cloud-Sync).
   let loadedProfile: string | null = null
   $: if ($profiles.activeId && $profiles.activeId !== loadedProfile) {
     loadedProfile = $profiles.activeId
     progress.useProfile($profiles.activeId)
+    const p = $profiles.profiles.find((x) => x.id === $profiles.activeId)
+    if (p && p.cloudId) startCloudSync(p)
+    else stopCloudSync()
+  }
+  $: if (!$profiles.activeId && loadedProfile) {
+    loadedProfile = null
+    stopCloudSync()
   }
 
   $: noProfile = !$profiles.activeId
@@ -55,6 +64,8 @@
   <ExerciseScreen subject={$nav.subject} topicId={$nav.topicId} exIndex={$nav.exIndex} />
 {:else if $nav.view === 'reward' && $nav.subject && $nav.topicId}
   <Reward subject={$nav.subject} topicId={$nav.topicId} />
+{:else if $nav.view === 'leaderboard'}
+  <Leaderboard />
 {:else}
   <Home />
 {/if}

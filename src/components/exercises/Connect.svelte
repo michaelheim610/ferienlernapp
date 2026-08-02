@@ -9,6 +9,19 @@
 
   const pairColors = ['#7c5cff', '#ff5fa2', '#3ddc84', '#38bdf8', '#ff7a59', '#ffb300']
 
+  // Beide Spalten zufaellig mischen, damit die Paare nicht Zeile fuer Zeile
+  // untereinander stehen - so muss man immer neu ueberlegen.
+  function shuffle<T>(arr: T[]): T[] {
+    const a = [...arr]
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[a[i], a[j]] = [a[j], a[i]]
+    }
+    return a
+  }
+  const leftItems = shuffle(exercise.left)
+  const rightItems = shuffle(exercise.right)
+
   let selected: string | null = null // linke id
   let matchColor: Record<string, string> = {} // group -> color
   let matched: Record<string, boolean> = {} // item id -> true
@@ -46,7 +59,7 @@
 
 <div class="connect">
   <div class="col">
-    {#each exercise.left as it (it.id)}
+    {#each leftItems as it (it.id)}
       <button
         class="item left"
         class:selected={selected === it.id}
@@ -65,7 +78,7 @@
   </div>
 
   <div class="col">
-    {#each exercise.right as it (it.id)}
+    {#each rightItems as it (it.id)}
       <button
         class="item right"
         class:matched={matched[it.id]}

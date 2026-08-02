@@ -6,6 +6,8 @@ export interface Profile {
   name: string
   avatar: string
   code?: string // 4-stelliger Geheimcode (weicher Geschwister-Schutz, kein echter Passwortschutz)
+  classCode?: string // Klassen-Code (nur bei Cloud-Profilen)
+  cloudId?: string // id in der Cloud-Datenbank (nur bei Cloud-Profilen)
 }
 
 interface ProfilesState {
@@ -51,10 +53,20 @@ function createProfiles() {
   return {
     subscribe: store.subscribe,
     /** Neues Profil anlegen und direkt aktiv setzen. Gibt die neue id zurueck. */
-    add(name: string, avatar: string, code = ''): string {
+    add(p: { name: string; avatar: string; code?: string; classCode?: string; cloudId?: string }): string {
       const id = genId()
       store.update((s) => ({
-        profiles: [...s.profiles, { id, name: name.trim() || 'Kind', avatar, code }],
+        profiles: [
+          ...s.profiles,
+          {
+            id,
+            name: (p.name || '').trim() || 'Kind',
+            avatar: p.avatar,
+            code: p.code || '',
+            classCode: p.classCode,
+            cloudId: p.cloudId
+          }
+        ],
         activeId: id
       }))
       return id

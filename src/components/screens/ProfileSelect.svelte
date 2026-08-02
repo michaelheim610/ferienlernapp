@@ -2,11 +2,12 @@
   import { profiles, type Profile } from '../../lib/profiles'
   import { progress } from '../../lib/store'
   import { goHome } from '../../lib/nav'
+  import { joinClass } from '../../lib/sync'
   import Astronaut from '../ui/Astronaut.svelte'
   import NumberPad from '../ui/NumberPad.svelte'
   import { playTap, playCorrect, playTry } from '../../lib/sound'
 
-  let mode: 'list' | 'create' | 'unlock' = 'list'
+  let mode: 'list' | 'create' | 'unlock' | 'join' = 'list'
   let newName = ''
   let chosenAvatar = '🦄'
   let newCode = ''
@@ -15,10 +16,14 @@
   let entered = ''
   let wrong = false
 
+  // Klasse beitreten (Cloud)
+  let joinClassCode = ''
+  let joinBusy = false
+  let joinError = ''
+
   const avatars = ['🦄', '🦖', '🐱', '🐶', '🦊', '🐼', '🐧', '🦁', '🐯', '🐸', '🐵', '🦉']
 
-  // Beim ersten Start ohne Profile direkt in den Anlegen-Modus.
-  $: if ($profiles.profiles.length === 0 && mode === 'list') mode = 'create'
+  $: isEmpty = $profiles.profiles.length === 0
 
   function activate(id: string) {
     profiles.select(id)
@@ -69,7 +74,7 @@
 
   function create() {
     if (!newName.trim() || newCode.length !== 4) return
-    const id = profiles.add(newName, chosenAvatar, newCode)
+    const id = profiles.add({ name: newName, avatar: chosenAvatar, code: newCode })
     progress.useProfile(id)
     playCorrect()
     newName = ''
@@ -77,11 +82,51 @@
     goHome()
   }
 
+  function onJoinKey(e: CustomEvent<string>) {
+    const k = e.detail
+    if (k === 'del') newCode = newCode.slice(0, -1)
+    else if (newCode.length < 4) newCode += k
+    joinError = ''
+  }
+
+  async function doJoin() {
+    if (joinBusy) return
+    if (!joinClassCode.trim() || !newName.trim() || newCode.length !== 4) return
+    joinBusy = true
+    joinError = ''
+    const res = await joinClass({
+      classCode: joinClassCode,
+      name: newName,
+      avatar: chosenAvatar,
+      pin: newCode
+    })
+    joinBusy = false
+    if (res.ok) {
+      playCorrect()
+      newName = ''
+      newCode = ''
+      joinClassCode = ''
+      goHome()
+    } else if (res.error === 'WRONG_PIN') {
+      joinError = 'Dieser Name gibt es schon in der Klasse – aber der Code stimmt nicht.'
+      newCode = ''
+      playTry()
+    } else if (res.error === 'OFFLINE') {
+      joinError = 'Kein Internet – zum Beitreten brauchst du einmal Netz. 📶'
+      playTry()
+    } else {
+      joinError = 'Das hat nicht geklappt. Prüfe den Klassen-Code und probier es nochmal.'
+      playTry()
+    }
+  }
+
   function backToList() {
     mode = 'list'
     entered = ''
     wrong = false
     unlockTarget = null
+    joinError = ''
+    newCode = ''
   }
 </script>
 
@@ -108,23 +153,28 @@
   {:else if mode === 'list'}
     <header class="hero">
       <Astronaut size={96} />
-      <h1 class="space-title">Wer lernt gerade?</h1>
+      <h1 class="space-title">{isEmpty ? 'Startklar? 🚀' : 'Wer lernt gerade?'}</h1>
+      {#if isEmpty}<p class="space-sub">Leg dein Kind neu an – oder tritt mit einem Klassen-Code der Klasse bei.</p>{/if}
     </header>
     <div class="tiles">
       {#each $profiles.profiles as p (p.id)}
         <button class="ptile" on:click={() => tapProfile(p)}>
           <span class="av">{p.avatar}</span>
           <span class="nm">{p.name}</span>
-          {#if p.code}<span class="lock">🔒</span>{/if}
+          {#if p.classCode}<span class="lock">🌍</span>{:else if p.code}<span class="lock">🔒</span>{/if}
         </button>
       {/each}
-      <button class="ptile add" on:click={() => (mode = 'create')}>
+      <button class="ptile add" on:click={() => { mode = 'create'; newCode = ''; }}>
         <span class="av">➕</span>
         <span class="nm">Neues Kind</span>
       </button>
+      <button class="ptile join-tile" on:click={() => { mode = 'join'; newCode = ''; joinError = ''; }}>
+        <span class="av">🌍</span>
+        <span class="nm">Klasse beitreten</span>
+      </button>
     </div>
 
-  {:else}
+  {:else if mode === 'create'}
     <header class="hero small">
       <h1 class="space-title">Neues Kind</h1>
     </header>
@@ -166,6 +216,64 @@
         </button>
       </div>
     </div>
+
+  {:else if mode === 'join'}
+    <header class="hero small">
+      <h1 class="space-title">🌍 Klasse beitreten</h1>
+      <p class="space-sub">Gemeinsam Sterne sammeln! ❤️</p>
+    </header>
+    <div class="create card">
+      <p class="lbl">Klassen-Code:</p>
+      <input
+        class="name-in"
+        type="text"
+        placeholder="z. B. LISA3"
+        maxlength="12"
+        autocapitalize="characters"
+        autocomplete="off"
+        bind:value={joinClassCode}
+      />
+
+      <p class="lbl">Suche dir ein Tier aus:</p>
+      <div class="avatars">
+        {#each avatars as a}
+          <button class="avatar" class:sel={chosenAvatar === a} on:click={() => { chosenAvatar = a }}>{a}</button>
+        {/each}
+      </div>
+
+      <p class="lbl">Dein Spitzname:</p>
+      <input
+        class="name-in"
+        type="text"
+        placeholder="Spitzname"
+        maxlength="14"
+        autocapitalize="words"
+        autocomplete="off"
+        bind:value={newName}
+      />
+
+      <p class="lbl">Dein Geheimcode (4 Zahlen) 🔒</p>
+      <div class="code-boxes small">
+        {#each Array(4) as _, i}
+          <span class="code-box" class:filled={i < newCode.length}>{i < newCode.length ? newCode[i] : ''}</span>
+        {/each}
+      </div>
+      <NumberPad on:key={onJoinKey} />
+
+      {#if joinError}<p class="form-err">{joinError}</p>{/if}
+
+      <div class="actions">
+        <button class="btn ghost" on:click={backToList} disabled={joinBusy}>Zurück</button>
+        <button
+          class="btn big green"
+          disabled={joinBusy || !joinClassCode.trim() || !newName.trim() || newCode.length !== 4}
+          on:click={doJoin}
+        >
+          {joinBusy ? 'Verbinde…' : `Mitmachen ${chosenAvatar} 🚀`}
+        </button>
+      </div>
+      <p class="hint-note">Tipp: Mit gleichem Spitznamen + Code kommst du auf jedem Gerät wieder rein.</p>
+    </div>
   {/if}
 </div>
 
@@ -197,6 +305,7 @@
   }
   .ptile:active { transform: scale(0.97); }
   .ptile.add { background: rgba(255, 255, 255, 0.16); border: 3px dashed rgba(255, 255, 255, 0.5); }
+  .ptile.join-tile { background: linear-gradient(180deg, var(--pink), #e23f86); }
   .ptile .av { font-size: 3.4rem; }
   .ptile .nm { font-size: 1.3rem; font-weight: 800; }
   .ptile .lock { position: absolute; top: 10px; right: 12px; font-size: 1.1rem; opacity: 0.9; }
@@ -243,4 +352,7 @@
   .code-box.bad { border-color: var(--red); background: #fff0f0; }
   .create .code-box { width: 48px; height: 54px; }
   .err { color: #ffd7d7; font-weight: 800; margin: 0; }
+  .form-err { color: var(--red); font-weight: 800; margin: 0; }
+  .hint-note { color: var(--ink-soft); font-weight: 700; font-size: 0.85rem; margin: 4px 0 0; }
+  .name-in { text-transform: none; }
 </style>
