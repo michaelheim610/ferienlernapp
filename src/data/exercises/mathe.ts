@@ -40,6 +40,23 @@ export const matheTopics: Topic[] = [
           { id: 'p3', z: 5, e: 1 },
           { id: 'p4', z: 0, e: 9 }
         ]
+      },
+      {
+        id: 'mathe-1-c',
+        type: 'connect',
+        instruction: 'Welche Zahl passt zum Wort? Verbinde!',
+        left: [
+          { id: 'l1', group: 'g37', label: '37' },
+          { id: 'l2', group: 'g24', label: '24' },
+          { id: 'l3', group: 'g51', label: '51' },
+          { id: 'l4', group: 'g9', label: '9' }
+        ],
+        right: [
+          { id: 'r1', group: 'g37', label: 'siebenunddreißig' },
+          { id: 'r2', group: 'g24', label: 'vierundzwanzig' },
+          { id: 'r3', group: 'g51', label: 'einundfünfzig' },
+          { id: 'r4', group: 'g9', label: 'neun' }
+        ]
       }
     ]
   },
@@ -66,6 +83,20 @@ export const matheTopics: Topic[] = [
           { id: 't6', value: 66, emoji: '🐘' },
           { id: 't7', value: 73, emoji: '🐱' },
           { id: 't8', value: 95, emoji: '🐦' }
+        ]
+      },
+      {
+        id: 'mathe-2-b',
+        type: 'hundredChart',
+        instruction: 'Runde 2: Auf welcher Zahl sitzt das Tier?',
+        anchors: [1, 10, 50, 100],
+        targets: [
+          { id: 't1', value: 12, emoji: '🐝' },
+          { id: 't2', value: 29, emoji: '🦋' },
+          { id: 't3', value: 45, emoji: '🐞' },
+          { id: 't4', value: 63, emoji: '🐬' },
+          { id: 't5', value: 81, emoji: '🦩' },
+          { id: 't6', value: 96, emoji: '🐨' }
         ]
       }
     ]
@@ -106,6 +137,22 @@ export const matheTopics: Topic[] = [
           { id: 'p2', text: '43 ← 44 → {}', answer: 45 },
           { id: 'p3', text: '{} ← 75 → 76', answer: 74 },
           { id: 'p4', text: '74 ← 75 → {}', answer: 76 }
+        ]
+      },
+      {
+        id: 'mathe-3-c',
+        type: 'numberLine',
+        instruction: 'Runde 2: Welche Zahl zeigt der Pfeil?',
+        min: 0,
+        max: 100,
+        majorStep: 10,
+        marks: [
+          { id: 'm1', value: 8 },
+          { id: 'm2', value: 26 },
+          { id: 'm3', value: 33 },
+          { id: 'm4', value: 52 },
+          { id: 'm5', value: 69 },
+          { id: 'm6', value: 87 }
         ]
       }
     ]
@@ -155,6 +202,21 @@ export const matheTopics: Topic[] = [
           { id: 'b7', text: '73 + 17 = {}', answer: 90 },
           { id: 'b8', text: '72 - 54 = {}', answer: 18 }
         ]
+      },
+      {
+        id: 'mathe-4-c',
+        type: 'fillNumber',
+        instruction: 'Noch mehr Übung! Notiere die Ergebnisse!',
+        problems: [
+          { id: 'c1', text: '38 + 7 = {}', answer: 45 },
+          { id: 'c2', text: '46 + 8 = {}', answer: 54 },
+          { id: 'c3', text: '63 - 5 = {}', answer: 58 },
+          { id: 'c4', text: '91 - 6 = {}', answer: 85 },
+          { id: 'c5', text: '27 + 9 = {}', answer: 36 },
+          { id: 'c6', text: '84 - 7 = {}', answer: 77 },
+          { id: 'c7', text: '55 + {} = 62', answer: 7 },
+          { id: 'c8', text: '70 - {} = 64', answer: 6 }
+        ]
       }
     ]
   },
@@ -190,6 +252,19 @@ export const matheTopics: Topic[] = [
           { id: 'p1', text: '2 · 7 = {}', answer: 14 },
           { id: 'p2', text: '3 · 6 = {}', answer: 18 },
           { id: 'p3', text: '5 · 9 = {}', answer: 45 }
+        ]
+      },
+      {
+        id: 'mathe-5-c',
+        type: 'fillNumber',
+        instruction: 'Löse die Malaufgaben!',
+        problems: [
+          { id: 'c1', text: '4 · 5 = {}', answer: 20 },
+          { id: 'c2', text: '6 · 3 = {}', answer: 18 },
+          { id: 'c3', text: '2 · 9 = {}', answer: 18 },
+          { id: 'c4', text: '7 · 4 = {}', answer: 28 },
+          { id: 'c5', text: '8 · 2 = {}', answer: 16 },
+          { id: 'c6', text: '3 · 8 = {}', answer: 24 }
         ]
       }
     ]
@@ -241,6 +316,21 @@ export const matheTopics: Topic[] = [
           { id: 'b9', text: '{} · 10 = 10', answer: 1 },
           { id: 'b10', text: '{} · 7 = 56', answer: 8 }
         ]
+      },
+      {
+        id: 'mathe-6-c',
+        type: 'fillNumber',
+        instruction: 'Die schweren Reihen! Notiere die Ergebnisse!',
+        problems: [
+          { id: 'c1', text: '8 · 6 = {}', answer: 48 },
+          { id: 'c2', text: '9 · 9 = {}', answer: 81 },
+          { id: 'c3', text: '7 · 8 = {}', answer: 56 },
+          { id: 'c4', text: '6 · 6 = {}', answer: 36 },
+          { id: 'c5', text: '4 · 7 = {}', answer: 28 },
+          { id: 'c6', text: '9 · 7 = {}', answer: 63 },
+          { id: 'c7', text: '8 · 8 = {}', answer: 64 },
+          { id: 'c8', text: '6 · 9 = {}', answer: 54 }
+        ]
       }
     ]
   },
@@ -278,6 +368,21 @@ export const matheTopics: Topic[] = [
           { id: 'b8', text: '20 : 4 = {}', answer: 5 },
           { id: 'b9', text: '64 : 8 = {}', answer: 8 },
           { id: 'b10', text: '40 : 8 = {}', answer: 5 }
+        ]
+      },
+      {
+        id: 'mathe-7-c',
+        type: 'fillNumber',
+        instruction: 'Noch mehr Teilen! Notiere die Ergebnisse!',
+        problems: [
+          { id: 'c1', text: '16 : 4 = {}', answer: 4 },
+          { id: 'c2', text: '24 : 6 = {}', answer: 4 },
+          { id: 'c3', text: '27 : 9 = {}', answer: 3 },
+          { id: 'c4', text: '30 : 5 = {}', answer: 6 },
+          { id: 'c5', text: '36 : 6 = {}', answer: 6 },
+          { id: 'c6', text: '45 : 9 = {}', answer: 5 },
+          { id: 'c7', text: '28 : 7 = {}', answer: 4 },
+          { id: 'c8', text: '54 : 6 = {}', answer: 9 }
         ]
       }
     ]
