@@ -1,0 +1,10 @@
+node_modules
+dist
+dist-ssr
+.DS_Store
+*.local
+.vite
+
+# Quell-Arbeitsblatt des Lehrers (urheberrechtlich geschuetzt) - nicht veroeffentlichen
+20260802.pdf
+*.pdf
