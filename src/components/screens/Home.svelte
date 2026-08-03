@@ -69,7 +69,7 @@
 
   <div class="extras">
     <button class="extra-btn collection" on:click={goCollection}>
-      🌌 Sammlung{#if next}<span class="goal">noch {next.stars - $progress.stars} ⭐ bis {next.emoji}</span>{/if}
+      🌌 Sammlung{#if next}<span class="goal">noch {next.stars - $progress.stars} ⭐ bis ❔</span>{/if}
     </button>
     {#if isCloud}
       <button class="extra-btn class" on:click={goLeaderboard}>🏆 Klassen-Sterne</button>

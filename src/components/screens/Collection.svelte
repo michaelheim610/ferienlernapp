@@ -19,7 +19,7 @@
   <div class="summary card2">
     <span class="count">{got} / {collectibles.length} gesammelt</span>
     {#if next}
-      <span class="next">Noch <b>{next.stars - stars}</b> ⭐ bis {next.emoji} {next.name}!</span>
+      <span class="next">Noch <b>{next.stars - stars}</b> ⭐ bis zur nächsten geheimen Überraschung ❔</span>
     {:else}
       <span class="next">Wow, du hast ALLES gesammelt! 🎉</span>
     {/if}

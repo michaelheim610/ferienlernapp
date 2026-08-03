@@ -37,6 +37,39 @@ export const deutschTopics: Topic[] = [
           { id: 'w4', word: 'Banane', syllables: ['Ba', 'na', 'ne'], kings: [1, 3, 5] },
           { id: 'w5', word: 'Regenbogen', syllables: ['Re', 'gen', 'bo', 'gen'], kings: [1, 3, 6, 8] }
         ]
+      },
+      {
+        id: 'deutsch-1-c',
+        type: 'syllable',
+        instruction: 'Level 3: Klatsche die Silben!',
+        words: [
+          { id: 'w1', word: 'Fahrrad', syllables: ['Fahr', 'rad'], kings: [1, 5] },
+          { id: 'w2', word: 'Krokodil', syllables: ['Kro', 'ko', 'dil'], kings: [2, 4, 6] },
+          { id: 'w3', word: 'Computer', syllables: ['Com', 'pu', 'ter'], kings: [1, 4, 6] },
+          { id: 'w4', word: 'Schmetterling', syllables: ['Schmet', 'ter', 'ling'], kings: [4, 7, 10] }
+        ]
+      },
+      {
+        id: 'deutsch-1-d',
+        type: 'syllable',
+        instruction: 'Profi: Klatsche die Silben!',
+        words: [
+          { id: 'w1', word: 'Tomate', syllables: ['To', 'ma', 'te'], kings: [1, 3, 5] },
+          { id: 'w2', word: 'Delfin', syllables: ['Del', 'fin'], kings: [1, 4] },
+          { id: 'w3', word: 'Giraffe', syllables: ['Gi', 'raf', 'fe'], kings: [1, 3, 6] },
+          { id: 'w4', word: 'Kartoffel', syllables: ['Kar', 'tof', 'fel'], kings: [1, 4, 7] }
+        ]
+      },
+      {
+        id: 'deutsch-1-e',
+        type: 'syllable',
+        instruction: 'Level 4: Klatsche die Silben!',
+        words: [
+          { id: 'w1', word: 'Ananas', syllables: ['A', 'na', 'nas'], kings: [0, 2, 4] },
+          { id: 'w2', word: 'Auto', syllables: ['Au', 'to'], kings: [0, 3] },
+          { id: 'w3', word: 'Pinguin', syllables: ['Pin', 'gu', 'in'], kings: [1, 4, 5] },
+          { id: 'w4', word: 'Sonnenblume', syllables: ['Son', 'nen', 'blu', 'me'], kings: [1, 4, 8, 10] }
+        ]
       }
     ]
   },
@@ -84,6 +117,42 @@ export const deutschTopics: Topic[] = [
           { id: 'q4', text: '{} Blume', options: ['der', 'die', 'das'], answer: 'die' },
           { id: 'q5', text: '{} Tisch', options: ['der', 'die', 'das'], answer: 'der' }
         ]
+      },
+      {
+        id: 'deutsch-2-d',
+        type: 'choice',
+        instruction: 'Level 3: Welcher Artikel passt?',
+        questions: [
+          { id: 'q1', text: '{} Fenster', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q2', text: '{} Löffel', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q3', text: '{} Gabel', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q4', text: '{} Messer', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q5', text: '{} Teller', options: ['der', 'die', 'das'], answer: 'der' }
+        ]
+      },
+      {
+        id: 'deutsch-2-e',
+        type: 'fillText',
+        instruction: 'Profi: Schreibe in der Mehrzahl!',
+        problems: [
+          { id: 'p1', text: 'der Apfel → die {}', answer: ['Äpfel', 'Aepfel'] },
+          { id: 'p2', text: 'das Buch → die {}', answer: ['Bücher', 'Buecher'] },
+          { id: 'p3', text: 'der Vogel → die {}', answer: ['Vögel', 'Voegel'] },
+          { id: 'p4', text: 'die Maus → die {}', answer: ['Mäuse', 'Maeuse'] },
+          { id: 'p5', text: 'der Ball → die {}', answer: ['Bälle', 'Baelle'] }
+        ]
+      },
+      {
+        id: 'deutsch-2-f',
+        type: 'choice',
+        instruction: 'Profi: Welcher Artikel passt?',
+        questions: [
+          { id: 'q1', text: '{} Haus', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q2', text: '{} Berg', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q3', text: '{} Lampe', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q4', text: '{} Bett', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q5', text: '{} Stuhl', options: ['der', 'die', 'das'], answer: 'der' }
+        ]
       }
     ]
   },
@@ -128,6 +197,41 @@ export const deutschTopics: Topic[] = [
           { id: 'p3', text: 'springen – du {}', answer: 'springst' },
           { id: 'p4', text: 'malen – ihr {}', answer: 'malt' },
           { id: 'p5', text: 'rufen – wir {}', answer: 'rufen' }
+        ]
+      },
+      {
+        id: 'deutsch-3-d',
+        type: 'fillText',
+        instruction: 'Level 3: Achtung, tricky Verben!',
+        problems: [
+          { id: 'p1', text: 'schwimmen – er {}', answer: 'schwimmt' },
+          { id: 'p2', text: 'lesen – du {}', answer: 'liest' },
+          { id: 'p3', text: 'essen – er {}', answer: 'isst' },
+          { id: 'p4', text: 'fahren – ich {}', answer: 'fahre' },
+          { id: 'p5', text: 'sein – ich {}', answer: 'bin' }
+        ]
+      },
+      {
+        id: 'deutsch-3-e',
+        type: 'fillText',
+        instruction: 'Profi: Welches Verb passt? (Grundform)',
+        problems: [
+          { id: 'p1', text: '🖌️ → {}', answer: ['malen', 'malt'] },
+          { id: 'p2', text: '🎤 → {}', answer: ['singen', 'singt'] },
+          { id: 'p3', text: '🏊 → {}', answer: ['schwimmen', 'schwimmt'] },
+          { id: 'p4', text: '🍽️ → {}', answer: ['essen', 'isst'] }
+        ]
+      },
+      {
+        id: 'deutsch-3-f',
+        type: 'fillText',
+        instruction: 'Profi: die richtige Verbform!',
+        problems: [
+          { id: 'p1', text: 'gehen – ich {}', answer: 'gehe' },
+          { id: 'p2', text: 'kommen – du {}', answer: 'kommst' },
+          { id: 'p3', text: 'sehen – er {}', answer: 'sieht' },
+          { id: 'p4', text: 'trinken – wir {}', answer: 'trinken' },
+          { id: 'p5', text: 'spielen – ihr {}', answer: 'spielt' }
         ]
       }
     ]
@@ -179,6 +283,47 @@ export const deutschTopics: Topic[] = [
           { id: 'p3', text: 'schnell – {}', answer: 'langsam' },
           { id: 'p4', text: 'voll – {}', answer: 'leer' },
           { id: 'p5', text: 'kalt – {}', answer: ['warm', 'heiß', 'heiss'] }
+        ]
+      },
+      {
+        id: 'deutsch-4-d',
+        type: 'fillText',
+        instruction: 'Level 3: Notiere den passenden Gegensatz!',
+        problems: [
+          { id: 'p1', text: 'sauber – {}', answer: ['schmutzig', 'dreckig'] },
+          { id: 'p2', text: 'laut – {}', answer: 'leise' },
+          { id: 'p3', text: 'reich – {}', answer: 'arm' },
+          { id: 'p4', text: 'breit – {}', answer: 'schmal' },
+          { id: 'p5', text: 'früh – {}', answer: ['spät', 'spaet'] }
+        ]
+      },
+      {
+        id: 'deutsch-4-e',
+        type: 'connect',
+        instruction: 'Profi: Wie ist das Tier/Ding? Verbinde!',
+        left: [
+          { id: 'l1', group: 'gross', label: '🐘 Elefant' },
+          { id: 'l2', group: 'klein', label: '🐭 Maus' },
+          { id: 'l3', group: 'heiss', label: '🔥 Feuer' },
+          { id: 'l4', group: 'kalt', label: '❄️ Schnee' }
+        ],
+        right: [
+          { id: 'r1', group: 'klein', label: 'klein' },
+          { id: 'r2', group: 'gross', label: 'groß' },
+          { id: 'r3', group: 'kalt', label: 'kalt' },
+          { id: 'r4', group: 'heiss', label: 'heiß' }
+        ]
+      },
+      {
+        id: 'deutsch-4-f',
+        type: 'fillText',
+        instruction: 'Profi: Notiere den Gegensatz!',
+        problems: [
+          { id: 'p1', text: 'offen – {}', answer: ['zu', 'geschlossen'] },
+          { id: 'p2', text: 'leicht – {}', answer: 'schwer' },
+          { id: 'p3', text: 'wenig – {}', answer: 'viel' },
+          { id: 'p4', text: 'traurig – {}', answer: ['fröhlich', 'froehlich', 'glücklich', 'gluecklich'] },
+          { id: 'p5', text: 'weit – {}', answer: ['nah', 'nahe'] }
         ]
       }
     ]
@@ -243,6 +388,78 @@ export const deutschTopics: Topic[] = [
           { id: 'y11', text: 'kochen', category: 'verb' },
           { id: 'y12', text: 'bunt', category: 'adjektiv' }
         ]
+      },
+      {
+        id: 'deutsch-5-c',
+        type: 'classify',
+        instruction: 'Level 3: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'z1', text: 'Fisch', category: 'nomen' },
+          { id: 'z2', text: 'grün', category: 'adjektiv' },
+          { id: 'z3', text: 'malen', category: 'verb' },
+          { id: 'z4', text: 'Tisch', category: 'nomen' },
+          { id: 'z5', text: 'weinen', category: 'verb' },
+          { id: 'z6', text: 'stark', category: 'adjektiv' },
+          { id: 'z7', text: 'Mond', category: 'nomen' },
+          { id: 'z8', text: 'tanzen', category: 'verb' },
+          { id: 'z9', text: 'leise', category: 'adjektiv' },
+          { id: 'z10', text: 'Buch', category: 'nomen' },
+          { id: 'z11', text: 'fahren', category: 'verb' },
+          { id: 'z12', text: 'warm', category: 'adjektiv' }
+        ]
+      },
+      {
+        id: 'deutsch-5-d',
+        type: 'classify',
+        instruction: 'Profi: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'z1', text: 'Sonne', category: 'nomen' },
+          { id: 'z2', text: 'schwimmen', category: 'verb' },
+          { id: 'z3', text: 'rot', category: 'adjektiv' },
+          { id: 'z4', text: 'Berg', category: 'nomen' },
+          { id: 'z5', text: 'klettern', category: 'verb' },
+          { id: 'z6', text: 'hoch', category: 'adjektiv' },
+          { id: 'z7', text: 'Katze', category: 'nomen' },
+          { id: 'z8', text: 'schlafen', category: 'verb' },
+          { id: 'z9', text: 'Stern', category: 'nomen' },
+          { id: 'z10', text: 'rufen', category: 'verb' },
+          { id: 'z11', text: 'kalt', category: 'adjektiv' },
+          { id: 'z12', text: 'Vogel', category: 'nomen' }
+        ]
+      },
+      {
+        id: 'deutsch-5-e',
+        type: 'classify',
+        instruction: 'Level 4: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'w1', text: 'Haus', category: 'nomen' },
+          { id: 'w2', text: 'rennen', category: 'verb' },
+          { id: 'w3', text: 'schön', category: 'adjektiv' },
+          { id: 'w4', text: 'Wasser', category: 'nomen' },
+          { id: 'w5', text: 'trinken', category: 'verb' },
+          { id: 'w6', text: 'nass', category: 'adjektiv' },
+          { id: 'w7', text: 'Kind', category: 'nomen' },
+          { id: 'w8', text: 'spielen', category: 'verb' },
+          { id: 'w9', text: 'lustig', category: 'adjektiv' },
+          { id: 'w10', text: 'Ball', category: 'nomen' },
+          { id: 'w11', text: 'werfen', category: 'verb' },
+          { id: 'w12', text: 'dunkel', category: 'adjektiv' }
+        ]
       }
     ]
   },
@@ -263,10 +480,12 @@ export const deutschTopics: Topic[] = [
           { id: 'p1', text: 'A B C {} E F', answer: 'D' },
           { id: 'p2', text: 'F {} H', answer: 'G' },
           { id: 'p3', text: 'H {} J K L', answer: 'I' },
-          { id: 'p4', text: 'L {} {} O', answer: 'M' },
-          { id: 'p5', text: 'R {} T', answer: 'S' },
-          { id: 'p6', text: 'T {} V', answer: 'U' },
-          { id: 'p7', text: 'V {} X Y {}', answer: 'W' }
+          { id: 'p4', text: 'L {} N O', answer: 'M' },
+          { id: 'p5', text: 'L M {} O', answer: 'N' },
+          { id: 'p6', text: 'R {} T', answer: 'S' },
+          { id: 'p7', text: 'T {} V', answer: 'U' },
+          { id: 'p8', text: 'V {} X', answer: 'W' },
+          { id: 'p9', text: 'X Y {}', answer: 'Z' }
         ]
       },
       {
@@ -285,6 +504,27 @@ export const deutschTopics: Topic[] = [
         groups: [
           { id: 'g1', words: ['Banane', 'Apfel', 'Orange'] },
           { id: 'g2', words: ['Hund', 'Maus', 'Katze'] }
+        ]
+      },
+      {
+        id: 'deutsch-6-d',
+        type: 'fillText',
+        instruction: 'Level 3: Welcher Buchstabe fehlt?',
+        problems: [
+          { id: 'p1', text: 'C {} E', answer: 'D' },
+          { id: 'p2', text: 'P {} R', answer: 'Q' },
+          { id: 'p3', text: 'W {} Y', answer: 'X' },
+          { id: 'p4', text: 'E {} G', answer: 'F' },
+          { id: 'p5', text: 'N {} P', answer: 'O' }
+        ]
+      },
+      {
+        id: 'deutsch-6-e',
+        type: 'order',
+        instruction: 'Profi: Ordne 4 Wörter nach dem Alphabet!',
+        groups: [
+          { id: 'g1', words: ['Erdbeere', 'Apfel', 'Banane', 'Kirsche'] },
+          { id: 'g2', words: ['Tiger', 'Affe', 'Elefant', 'Löwe'] }
         ]
       }
     ]
@@ -318,6 +558,39 @@ export const deutschTopics: Topic[] = [
           { id: 'q2', text: 'Ich freue mich so {}', options: ['.', '?', '!'], answer: '!' },
           { id: 'q3', text: 'Der Hund schläft {}', options: ['.', '?', '!'], answer: '.' },
           { id: 'q4', text: 'Kommst du mit {}', options: ['.', '?', '!'], answer: '?' }
+        ]
+      },
+      {
+        id: 'deutsch-7-c',
+        type: 'choice',
+        instruction: 'Level 3: Welches Satzzeichen fehlt?',
+        questions: [
+          { id: 'q1', text: 'Pass auf {}', options: ['.', '?', '!'], answer: '!' },
+          { id: 'q2', text: 'Wo ist mein Ball {}', options: ['.', '?', '!'], answer: '?' },
+          { id: 'q3', text: 'Ich heiße Lisa {}', options: ['.', '?', '!'], answer: '.' },
+          { id: 'q4', text: 'Wie schön {}', options: ['.', '?', '!'], answer: '!' }
+        ]
+      },
+      {
+        id: 'deutsch-7-d',
+        type: 'choice',
+        instruction: 'Profi: Welches Satzzeichen fehlt?',
+        questions: [
+          { id: 'q1', text: 'Hast du Hunger {}', options: ['.', '?', '!'], answer: '?' },
+          { id: 'q2', text: 'Der Ball ist rund {}', options: ['.', '?', '!'], answer: '.' },
+          { id: 'q3', text: 'Hilfe {}', options: ['.', '?', '!'], answer: '!' },
+          { id: 'q4', text: 'Wann kommst du {}', options: ['.', '?', '!'], answer: '?' }
+        ]
+      },
+      {
+        id: 'deutsch-7-e',
+        type: 'choice',
+        instruction: 'Level 4: Welches Satzzeichen fehlt?',
+        questions: [
+          { id: 'q1', text: 'Es schneit {}', options: ['.', '?', '!'], answer: '.' },
+          { id: 'q2', text: 'Magst du Eis {}', options: ['.', '?', '!'], answer: '?' },
+          { id: 'q3', text: 'Autsch {}', options: ['.', '?', '!'], answer: '!' },
+          { id: 'q4', text: 'Wie spät ist es {}', options: ['.', '?', '!'], answer: '?' }
         ]
       }
     ]

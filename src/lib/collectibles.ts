@@ -8,16 +8,26 @@ export interface Collectible {
 export const collectibles: Collectible[] = [
   { stars: 1, emoji: '🌙', name: 'Mond' },
   { stars: 3, emoji: '⭐', name: 'Stern' },
-  { stars: 6, emoji: '☄️', name: 'Komet' },
-  { stars: 10, emoji: '🪐', name: 'Ringplanet' },
-  { stars: 15, emoji: '🛰️', name: 'Satellit' },
-  { stars: 20, emoji: '🚀', name: 'Rakete' },
-  { stars: 26, emoji: '🌍', name: 'Erde' },
-  { stars: 32, emoji: '👽', name: 'Alien' },
-  { stars: 38, emoji: '🛸', name: 'Ufo' },
-  { stars: 44, emoji: '🌠', name: 'Sternschnuppe' },
-  { stars: 52, emoji: '🌌', name: 'Galaxie' },
-  { stars: 60, emoji: '🌞', name: 'Sonne' }
+  { stars: 5, emoji: '☄️', name: 'Komet' },
+  { stars: 8, emoji: '🪐', name: 'Ringplanet' },
+  { stars: 11, emoji: '🛰️', name: 'Satellit' },
+  { stars: 14, emoji: '🚀', name: 'Rakete' },
+  { stars: 18, emoji: '🌍', name: 'Erde' },
+  { stars: 22, emoji: '🌕', name: 'Vollmond' },
+  { stars: 26, emoji: '🔭', name: 'Teleskop' },
+  { stars: 30, emoji: '👽', name: 'Alien' },
+  { stars: 34, emoji: '🛸', name: 'Ufo' },
+  { stars: 38, emoji: '🌠', name: 'Sternschnuppe' },
+  { stars: 42, emoji: '🌌', name: 'Galaxie' },
+  { stars: 46, emoji: '🌞', name: 'Sonne' },
+  { stars: 50, emoji: '👾', name: 'Weltraum-Monster' },
+  { stars: 54, emoji: '🧑‍🚀', name: 'Astronaut' },
+  { stars: 58, emoji: '🪨', name: 'Asteroid' },
+  { stars: 62, emoji: '🌛', name: 'Mondsichel' },
+  { stars: 66, emoji: '💫', name: 'Wirbelstern' },
+  { stars: 70, emoji: '🏆', name: 'Pokal' },
+  { stars: 74, emoji: '🥇', name: 'Goldmedaille' },
+  { stars: 78, emoji: '👑', name: 'Krone' }
 ]
 
 /** Anzahl bereits freigeschalteter Objekte. */
