@@ -22,7 +22,7 @@ function keyFor(profileId: string): string {
 }
 
 function loadFor(profileId: string | null): Progress {
-  if (!profileId) return { solved: {}, stars: 0, soundOn: true }
+  if (!profileId) return { solved: {}, stars: 0, soundOn: true, streak: 0 }
   try {
     const raw = localStorage.getItem(keyFor(profileId))
     if (raw) {

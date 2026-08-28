@@ -1,7 +1,7 @@
 import type { Topic } from '../../lib/types'
 
 // ----------------------------------------------------------------------------
-// DEUTSCH - 7 Themen, faithful zum Heft "Startklar fuer die 3. Klasse"
+// DEUTSCH - 7 Themen, eigene Aufgaben im Stil einer Vorbereitung auf die 3. Klasse
 // ----------------------------------------------------------------------------
 
 export const deutschTopics: Topic[] = [
@@ -18,12 +18,11 @@ export const deutschTopics: Topic[] = [
         type: 'syllable',
         instruction: 'Klatsche die Silben! Tippe für jede Silbe einmal.',
         words: [
-          { id: 'w1', word: 'Biene', syllables: ['Bie', 'ne'], kings: [1, 4] },
-          { id: 'w2', word: 'Maus', syllables: ['Maus'], kings: [1] },
-          { id: 'w3', word: 'Zitrone', syllables: ['Zi', 'tro', 'ne'], kings: [1, 4, 6] },
-          { id: 'w4', word: 'Glueck', syllables: ['Glueck'], kings: [2] },
-          { id: 'w5', word: 'Papagei', syllables: ['Pa', 'pa', 'gei'], kings: [1, 3, 5] },
-          { id: 'w6', word: 'Schildkroete', syllables: ['Schild', 'kroe', 'te'], kings: [3, 8, 11] }
+          { id: 'w1', word: 'Blume', syllables: ['Blu', 'me'], kings: [2, 4] },
+          { id: 'w2', word: 'Fisch', syllables: ['Fisch'], kings: [1] },
+          { id: 'w3', word: 'Kamel', syllables: ['Ka', 'mel'], kings: [1, 3] },
+          { id: 'w4', word: 'Nashorn', syllables: ['Nas', 'horn'], kings: [1, 4] },
+          { id: 'w5', word: 'Schokolade', syllables: ['Scho', 'ko', 'la', 'de'], kings: [3, 5, 7, 9] }
         ]
       },
       {
@@ -87,11 +86,11 @@ export const deutschTopics: Topic[] = [
         type: 'choice',
         instruction: 'Welcher Artikel passt? der, die oder das?',
         questions: [
-          { id: 'q1', text: '{} Löwe', options: ['der', 'die', 'das'], answer: 'der' },
-          { id: 'q2', text: '{} Stift', options: ['der', 'die', 'das'], answer: 'der' },
-          { id: 'q3', text: '{} Baum', options: ['der', 'die', 'das'], answer: 'der' },
-          { id: 'q4', text: '{} Kind', options: ['der', 'die', 'das'], answer: 'das' },
-          { id: 'q5', text: '{} Katze', options: ['der', 'die', 'das'], answer: 'die' }
+          { id: 'q1', text: '{} Tiger', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q2', text: '{} Wolke', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q3', text: '{} Pferd', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q4', text: '{} Nase', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q5', text: '{} Schuh', options: ['der', 'die', 'das'], answer: 'der' }
         ]
       },
       {
@@ -99,11 +98,11 @@ export const deutschTopics: Topic[] = [
         type: 'fillText',
         instruction: 'Schreibe in der Mehrzahl (mit "die")!',
         problems: [
-          { id: 'p1', text: 'der Löwe → die {}', answer: ['Löwen', 'Loewen'] },
-          { id: 'p2', text: 'der Stift → die {}', answer: 'Stifte' },
-          { id: 'p3', text: 'der Baum → die {}', answer: ['Bäume', 'Baeume'] },
-          { id: 'p4', text: 'das Kind → die {}', answer: 'Kinder' },
-          { id: 'p5', text: 'die Katze → die {}', answer: 'Katzen' }
+          { id: 'p1', text: 'der Schuh → die {}', answer: 'Schuhe' },
+          { id: 'p2', text: 'die Wolke → die {}', answer: 'Wolken' },
+          { id: 'p3', text: 'das Pferd → die {}', answer: 'Pferde' },
+          { id: 'p4', text: 'die Nase → die {}', answer: 'Nasen' },
+          { id: 'p5', text: 'der Hut → die {}', answer: ['Hüte', 'Huete'] }
         ]
       },
       {
@@ -170,10 +169,10 @@ export const deutschTopics: Topic[] = [
         type: 'fillText',
         instruction: 'Was tun die Kinder? Notiere ein passendes Verb!',
         problems: [
-          { id: 'p1', text: '📖 → {}', answer: ['lesen', 'liest'] },
-          { id: 'p2', text: '🏃 → {}', answer: ['rennen', 'laufen', 'rennt', 'laeuft', 'läuft'] },
-          { id: 'p3', text: '😴 → {}', answer: ['schlafen', 'schlaeft', 'schläft'] },
-          { id: 'p4', text: '😢 → {}', answer: ['weinen', 'weint'] }
+          { id: 'p1', text: '🤸 → {}', answer: ['turnen', 'turnt'] },
+          { id: 'p2', text: '🚴 → {}', answer: ['fahren', 'faehrt', 'fährt', 'radfahren'] },
+          { id: 'p3', text: '🧗 → {}', answer: ['klettern', 'klettert'] },
+          { id: 'p4', text: '🥁 → {}', answer: ['trommeln', 'trommelt'] }
         ]
       },
       {
@@ -181,10 +180,10 @@ export const deutschTopics: Topic[] = [
         type: 'fillText',
         instruction: 'Notiere die richtige Verbform!',
         problems: [
-          { id: 'p1', text: 'spielen – er {}', answer: 'spielt' },
-          { id: 'p2', text: 'lachen – ich {}', answer: 'lache' },
-          { id: 'p3', text: 'malen – du {}', answer: 'malst' },
-          { id: 'p4', text: 'fliegen – wir {}', answer: 'fliegen' }
+          { id: 'p1', text: 'winken – er {}', answer: 'winkt' },
+          { id: 'p2', text: 'hüpfen – ich {}', answer: 'hüpfe' },
+          { id: 'p3', text: 'baden – du {}', answer: 'badest' },
+          { id: 'p4', text: 'klatschen – wir {}', answer: 'klatschen' }
         ]
       },
       {
@@ -250,27 +249,27 @@ export const deutschTopics: Topic[] = [
         type: 'connect',
         instruction: 'Wie sind die Dinge? Verbinde mit dem passenden Adjektiv!',
         left: [
-          { id: 'l1', group: 'leicht', label: '🪶 Feder' },
-          { id: 'l2', group: 'sauer', label: '🍋 Zitrone' },
-          { id: 'l3', group: 'langsam', label: '🐌 Schnecke' },
-          { id: 'l4', group: 'laut', label: '⏰ Wecker' }
+          { id: 'l1', group: 'schnell', label: '🐆 Gepard' },
+          { id: 'l2', group: 'suess', label: '🍭 Lolli' },
+          { id: 'l3', group: 'hart', label: '🪨 Stein' },
+          { id: 'l4', group: 'laut', label: '🔔 Glocke' }
         ],
         right: [
-          { id: 'r1', group: 'sauer', label: 'sauer' },
-          { id: 'r2', group: 'leicht', label: 'leicht' },
+          { id: 'r1', group: 'suess', label: 'süß' },
+          { id: 'r2', group: 'schnell', label: 'schnell' },
           { id: 'r3', group: 'laut', label: 'laut' },
-          { id: 'r4', group: 'langsam', label: 'langsam' }
+          { id: 'r4', group: 'hart', label: 'hart' }
         ]
       },
       {
         id: 'deutsch-4-b',
         type: 'fillText',
-        instruction: 'Notiere den passenden Gegensatz! (klein, dick, weich, alt)',
+        instruction: 'Notiere den passenden Gegensatz! (kurz, schwach, unten, schlecht)',
         problems: [
-          { id: 'p1', text: 'dünn – {}', answer: 'dick' },
-          { id: 'p2', text: 'hart – {}', answer: 'weich' },
-          { id: 'p3', text: 'groß – {}', answer: 'klein' },
-          { id: 'p4', text: 'jung – {}', answer: 'alt' }
+          { id: 'p1', text: 'lang – {}', answer: 'kurz' },
+          { id: 'p2', text: 'stark – {}', answer: 'schwach' },
+          { id: 'p3', text: 'oben – {}', answer: 'unten' },
+          { id: 'p4', text: 'gut – {}', answer: 'schlecht' }
         ]
       },
       {
@@ -340,29 +339,28 @@ export const deutschTopics: Topic[] = [
       {
         id: 'deutsch-5-a',
         type: 'classify',
-        instruction: 'Tippe die Woerter an: Nomen blau, Verben rot, Adjektive gruen!',
+        instruction: 'Tippe die Wörter an: Nomen blau, Verben rot, Adjektive grün!',
         categories: [
           { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
           { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
           { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
         ],
         words: [
-          { id: 'x1', text: 'Rakete', category: 'nomen' },
-          { id: 'x2', text: 'süß', category: 'adjektiv' },
-          { id: 'x3', text: 'Tomate', category: 'nomen' },
-          { id: 'x4', text: 'weich', category: 'adjektiv' },
-          { id: 'x5', text: 'trinken', category: 'verb' },
-          { id: 'x6', text: 'schlafen', category: 'verb' },
-          { id: 'x7', text: 'Opa', category: 'nomen' },
-          { id: 'x8', text: 'gießen', category: 'verb' },
-          { id: 'x9', text: 'Esel', category: 'nomen' },
-          { id: 'x10', text: 'klein', category: 'adjektiv' },
-          { id: 'x11', text: 'Ananas', category: 'nomen' },
-          { id: 'x12', text: 'Stift', category: 'nomen' },
-          { id: 'x13', text: 'hart', category: 'adjektiv' },
-          { id: 'x14', text: 'Apfel', category: 'nomen' },
-          { id: 'x15', text: 'rennen', category: 'verb' },
-          { id: 'x16', text: 'lesen', category: 'verb' }
+          { id: 'x1', text: 'Pizza', category: 'nomen' },
+          { id: 'x2', text: 'sauer', category: 'adjektiv' },
+          { id: 'x3', text: 'backen', category: 'verb' },
+          { id: 'x4', text: 'Insel', category: 'nomen' },
+          { id: 'x5', text: 'glatt', category: 'adjektiv' },
+          { id: 'x6', text: 'träumen', category: 'verb' },
+          { id: 'x7', text: 'Zahn', category: 'nomen' },
+          { id: 'x8', text: 'breit', category: 'adjektiv' },
+          { id: 'x9', text: 'rollen', category: 'verb' },
+          { id: 'x10', text: 'Krone', category: 'nomen' },
+          { id: 'x11', text: 'laut', category: 'adjektiv' },
+          { id: 'x12', text: 'winken', category: 'verb' },
+          { id: 'x13', text: 'Ohr', category: 'nomen' },
+          { id: 'x14', text: 'spitz', category: 'adjektiv' },
+          { id: 'x15', text: 'hüpfen', category: 'verb' }
         ]
       },
       {
@@ -493,8 +491,8 @@ export const deutschTopics: Topic[] = [
         type: 'order',
         instruction: 'Ordne nach dem Alphabet! Tippe die Wörter der Reihe nach an.',
         groups: [
-          { id: 'g1', words: ['Trauben', 'Melone', 'Zitrone'] },
-          { id: 'g2', words: ['Schere', 'Stift', 'Spitzer'] }
+          { id: 'g1', words: ['Wolke', 'Blume', 'Stern'] },
+          { id: 'g2', words: ['Ente', 'Biene', 'Fisch'] }
         ]
       },
       {
@@ -543,10 +541,10 @@ export const deutschTopics: Topic[] = [
         type: 'choice',
         instruction: 'Welches Satzzeichen fehlt? Tippe es an!',
         questions: [
-          { id: 'q1', text: 'Die Sommerferien sind vorbei {}', options: ['.', '?', '!'], answer: '.' },
-          { id: 'q2', text: 'In welcher Klasse bist du jetzt {}', options: ['.', '?', '!'], answer: '?' },
-          { id: 'q3', text: 'Juhu {}', options: ['.', '?', '!'], answer: '!' },
-          { id: 'q4', text: 'Jetzt bin ich endlich in der dritten Klasse {}', options: ['.', '?', '!'], answer: '!' }
+          { id: 'q1', text: 'Es regnet heute {}', options: ['.', '?', '!'], answer: '.' },
+          { id: 'q2', text: 'Wo ist meine Jacke {}', options: ['.', '?', '!'], answer: '?' },
+          { id: 'q3', text: 'Super gemacht {}', options: ['.', '?', '!'], answer: '!' },
+          { id: 'q4', text: 'Wir fahren ans Meer {}', options: ['.', '?', '!'], answer: '.' }
         ]
       },
       {

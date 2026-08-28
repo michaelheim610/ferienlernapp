@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte'
-  import { nav, goCollection, goExercise, goReward } from './lib/nav'
-  import { allTopics } from './data/topics'
+  import { nav } from './lib/nav'
   import { progress } from './lib/store'
   import { profiles } from './lib/profiles'
   import { startCloudSync, stopCloudSync, initConnectivity } from './lib/sync'
@@ -25,7 +24,7 @@
       try { state = JSON.parse(localStorage.getItem('ferienlernapp.profiles.v1') || '{}') } catch (e) {}
       const hasProfiles = state && Array.isArray(state.profiles) && state.profiles.length > 0
       if (old && !hasProfiles) {
-        const id = profiles.add('Lisa', '🦄')
+        const id = profiles.add({ name: 'Lisa', avatar: '🦄' })
         localStorage.setItem(`ferienlernapp.progress.v1.${id}`, old)
         localStorage.removeItem(OLD)
         progress.useProfile(id)
@@ -36,19 +35,6 @@
 
     initConnectivity()
     initUpdates()
-
-    // Demo-Modus fuer Screenshots (nur bei ?demo in der URL)
-    const params = new URLSearchParams(location.search)
-    if (params.has('demo')) {
-      const id = profiles.add({ name: 'Lisa', avatar: '🦄', code: '0610' })
-      progress.useProfile(id)
-      const ids = allTopics.flatMap((t) => t.exercises.map((e) => e.id)).slice(0, 41)
-      for (const eid of ids) progress.solve(eid)
-      const screen = params.get('screen')
-      if (screen === 'collection') goCollection()
-      else if (screen === 'exercise') goExercise('deutsch', 'deutsch-5', 0)
-      else if (screen === 'reward') goReward('mathe', 'mathe-1')
-    }
 
     const unsub = progress.subscribe((p) => setSoundEnabled(p.soundOn))
     return unsub

@@ -1,7 +1,7 @@
 import type { Topic } from '../../lib/types'
 
 // ----------------------------------------------------------------------------
-// MATHE - 7 Themen, faithful zum Heft "Startklar fuer die 3. Klasse"
+// MATHE - 7 Themen, eigene Aufgaben im Stil einer Vorbereitung auf die 3. Klasse
 // ----------------------------------------------------------------------------
 
 export const matheTopics: Topic[] = [
@@ -20,14 +20,14 @@ export const matheTopics: Topic[] = [
         leftKind: 'text',
         rightKind: 'text',
         left: [
-          { id: 'l1', group: '64', label: '6 Z + 4 E' },
-          { id: 'l2', group: '28', label: '2 Z + 8 E' },
-          { id: 'l3', group: '43', label: '4 Z + 3 E' }
+          { id: 'l1', group: '71', label: '7 Z + 1 E' },
+          { id: 'l2', group: '36', label: '3 Z + 6 E' },
+          { id: 'l3', group: '52', label: '5 Z + 2 E' }
         ],
         right: [
-          { id: 'r1', group: '64', label: 'vierundsechzig' },
-          { id: 'r2', group: '28', label: 'achtundzwanzig' },
-          { id: 'r3', group: '43', label: 'dreiundvierzig' }
+          { id: 'r1', group: '71', label: 'einundsiebzig' },
+          { id: 'r2', group: '36', label: 'sechsunddreißig' },
+          { id: 'r3', group: '52', label: 'zweiundfünfzig' }
         ]
       },
       {
@@ -35,10 +35,10 @@ export const matheTopics: Topic[] = [
         type: 'placeValue',
         instruction: 'Wie heißt die Zahl? Zähle die Zehner und Einer!',
         problems: [
-          { id: 'p1', z: 3, e: 7 },
-          { id: 'p2', z: 2, e: 4 },
-          { id: 'p3', z: 5, e: 1 },
-          { id: 'p4', z: 0, e: 9 }
+          { id: 'p1', z: 4, e: 2 },
+          { id: 'p2', z: 6, e: 5 },
+          { id: 'p3', z: 2, e: 8 },
+          { id: 'p4', z: 1, e: 9 }
         ]
       },
       {
@@ -116,14 +116,14 @@ export const matheTopics: Topic[] = [
         instruction: 'Auf welcher Zahl sitzt das Tier? Tippe die Zahl ein!',
         anchors: [1, 10, 50, 100],
         targets: [
-          { id: 't1', value: 4, emoji: '🐌' },
-          { id: 't2', value: 17, emoji: '🐢' },
-          { id: 't3', value: 23, emoji: '🦀' },
-          { id: 't4', value: 38, emoji: '🐰' },
-          { id: 't5', value: 41, emoji: '🐭' },
-          { id: 't6', value: 66, emoji: '🐘' },
-          { id: 't7', value: 73, emoji: '🐱' },
-          { id: 't8', value: 95, emoji: '🐦' }
+          { id: 't1', value: 5, emoji: '🐌' },
+          { id: 't2', value: 16, emoji: '🐢' },
+          { id: 't3', value: 28, emoji: '🦀' },
+          { id: 't4', value: 33, emoji: '🐰' },
+          { id: 't5', value: 47, emoji: '🐭' },
+          { id: 't6', value: 61, emoji: '🐘' },
+          { id: 't7', value: 72, emoji: '🐱' },
+          { id: 't8', value: 88, emoji: '🐦' }
         ]
       },
       {
@@ -202,10 +202,10 @@ export const matheTopics: Topic[] = [
         instruction: 'Ergänze die Nachbarzahlen richtig!',
         columns: 1,
         problems: [
-          { id: 'p1', text: '{} ← 44 → 45', answer: 43 },
-          { id: 'p2', text: '43 ← 44 → {}', answer: 45 },
-          { id: 'p3', text: '{} ← 75 → 76', answer: 74 },
-          { id: 'p4', text: '74 ← 75 → {}', answer: 76 }
+          { id: 'p1', text: '{} ← 57 → 58', answer: 56 },
+          { id: 'p2', text: '56 ← 57 → {}', answer: 58 },
+          { id: 'p3', text: '{} ← 83 → 84', answer: 82 },
+          { id: 'p4', text: '82 ← 83 → {}', answer: 84 }
         ]
       },
       {
@@ -286,21 +286,21 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Notiere die Ergebnisse!',
         problems: [
-          { id: 'a1', text: '25 + 7 = {}', answer: 32 },
-          { id: 'a2', text: '59 + 5 = {}', answer: 64 },
-          { id: 'a3', text: '54 + 9 = {}', answer: 63 },
-          { id: 'a4', text: '80 - 4 = {}', answer: 76 },
-          { id: 'a5', text: '25 + {} = 32', answer: 7 },
-          { id: 'a6', text: '36 + 6 = {}', answer: 42 },
-          { id: 'a7', text: '65 - 9 = {}', answer: 56 },
-          { id: 'a8', text: '11 + 9 = {}', answer: 20 },
-          { id: 'a9', text: '50 - 1 = {}', answer: 49 },
-          { id: 'a10', text: '62 - {} = 56', answer: 6 },
-          { id: 'a11', text: '41 - 4 = {}', answer: 37 },
-          { id: 'a12', text: '77 + 7 = {}', answer: 84 },
-          { id: 'a13', text: '73 + 8 = {}', answer: 81 },
-          { id: 'a14', text: '30 - 8 = {}', answer: 22 },
-          { id: 'a15', text: '49 + {} = 58', answer: 9 }
+          { id: 'a1', text: '34 + 8 = {}', answer: 42 },
+          { id: 'a2', text: '47 + 6 = {}', answer: 53 },
+          { id: 'a3', text: '62 + 9 = {}', answer: 71 },
+          { id: 'a4', text: '90 - 3 = {}', answer: 87 },
+          { id: 'a5', text: '34 + {} = 41', answer: 7 },
+          { id: 'a6', text: '28 + 5 = {}', answer: 33 },
+          { id: 'a7', text: '73 - 6 = {}', answer: 67 },
+          { id: 'a8', text: '15 + 7 = {}', answer: 22 },
+          { id: 'a9', text: '40 - 2 = {}', answer: 38 },
+          { id: 'a10', text: '55 - {} = 48', answer: 7 },
+          { id: 'a11', text: '52 - 6 = {}', answer: 46 },
+          { id: 'a12', text: '68 + 9 = {}', answer: 77 },
+          { id: 'a13', text: '47 + 8 = {}', answer: 55 },
+          { id: 'a14', text: '20 - 3 = {}', answer: 17 },
+          { id: 'a15', text: '39 + {} = 45', answer: 6 }
         ]
       },
       {
@@ -308,14 +308,14 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Notiere die Ergebnisse!',
         problems: [
-          { id: 'b1', text: '25 + 32 = {}', answer: 57 },
-          { id: 'b2', text: '64 - 41 = {}', answer: 23 },
-          { id: 'b3', text: '84 - 34 = {}', answer: 50 },
-          { id: 'b4', text: '45 + 37 = {}', answer: 82 },
-          { id: 'b5', text: '47 + 51 = {}', answer: 98 },
-          { id: 'b6', text: '55 + 33 = {}', answer: 88 },
-          { id: 'b7', text: '73 + 17 = {}', answer: 90 },
-          { id: 'b8', text: '72 - 54 = {}', answer: 18 }
+          { id: 'b1', text: '41 + 38 = {}', answer: 79 },
+          { id: 'b2', text: '76 - 53 = {}', answer: 23 },
+          { id: 'b3', text: '92 - 48 = {}', answer: 44 },
+          { id: 'b4', text: '35 + 47 = {}', answer: 82 },
+          { id: 'b5', text: '53 + 44 = {}', answer: 97 },
+          { id: 'b6', text: '66 + 29 = {}', answer: 95 },
+          { id: 'b7', text: '88 - 59 = {}', answer: 29 },
+          { id: 'b8', text: '74 - 46 = {}', answer: 28 }
         ]
       },
       {
@@ -394,14 +394,14 @@ export const matheTopics: Topic[] = [
         type: 'connect',
         instruction: 'Was passt zusammen? Verbinde Plus- und Malaufgabe!',
         left: [
-          { id: 'l1', group: 'g8', label: '4 + 4' },
-          { id: 'l2', group: 'g10', label: '2 + 2 + 2 + 2 + 2' },
-          { id: 'l3', group: 'g9', label: '3 + 3 + 3' }
+          { id: 'l1', group: 'g10', label: '5 + 5' },
+          { id: 'l2', group: 'g12', label: '4 + 4 + 4' },
+          { id: 'l3', group: 'g21', label: '7 + 7 + 7' }
         ],
         right: [
-          { id: 'r1', group: 'g8', label: '2 · 4' },
-          { id: 'r2', group: 'g10', label: '5 · 2' },
-          { id: 'r3', group: 'g9', label: '3 · 3' }
+          { id: 'r1', group: 'g10', label: '2 · 5' },
+          { id: 'r2', group: 'g12', label: '3 · 4' },
+          { id: 'r3', group: 'g21', label: '3 · 7' }
         ]
       },
       {
@@ -409,9 +409,9 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Löse die Malaufgaben!',
         problems: [
-          { id: 'p1', text: '2 · 7 = {}', answer: 14 },
-          { id: 'p2', text: '3 · 6 = {}', answer: 18 },
-          { id: 'p3', text: '5 · 9 = {}', answer: 45 }
+          { id: 'p1', text: '2 · 8 = {}', answer: 16 },
+          { id: 'p2', text: '4 · 6 = {}', answer: 24 },
+          { id: 'p3', text: '7 · 9 = {}', answer: 63 }
         ]
       },
       {
@@ -486,21 +486,21 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Notiere die Ergebnisse!',
         problems: [
-          { id: 'a1', text: '2 · 4 = {}', answer: 8 },
-          { id: 'a2', text: '6 · 10 = {}', answer: 60 },
-          { id: 'a3', text: '3 · 3 = {}', answer: 9 },
-          { id: 'a4', text: '7 · 5 = {}', answer: 35 },
-          { id: 'a5', text: '0 · 9 = {}', answer: 0 },
-          { id: 'a6', text: '3 · 7 = {}', answer: 21 },
-          { id: 'a7', text: '4 · 4 = {}', answer: 16 },
-          { id: 'a8', text: '5 · 6 = {}', answer: 30 },
-          { id: 'a9', text: '10 · 2 = {}', answer: 20 },
-          { id: 'a10', text: '1 · 6 = {}', answer: 6 },
-          { id: 'a11', text: '9 · 6 = {}', answer: 54 },
-          { id: 'a12', text: '2 · 8 = {}', answer: 16 },
-          { id: 'a13', text: '7 · 7 = {}', answer: 49 },
-          { id: 'a14', text: '8 · 4 = {}', answer: 32 },
-          { id: 'a15', text: '5 · 8 = {}', answer: 40 }
+          { id: 'a1', text: '2 · 5 = {}', answer: 10 },
+          { id: 'a2', text: '5 · 10 = {}', answer: 50 },
+          { id: 'a3', text: '4 · 3 = {}', answer: 12 },
+          { id: 'a4', text: '6 · 5 = {}', answer: 30 },
+          { id: 'a5', text: '0 · 7 = {}', answer: 0 },
+          { id: 'a6', text: '8 · 3 = {}', answer: 24 },
+          { id: 'a7', text: '5 · 5 = {}', answer: 25 },
+          { id: 'a8', text: '3 · 6 = {}', answer: 18 },
+          { id: 'a9', text: '10 · 4 = {}', answer: 40 },
+          { id: 'a10', text: '1 · 9 = {}', answer: 9 },
+          { id: 'a11', text: '6 · 4 = {}', answer: 24 },
+          { id: 'a12', text: '2 · 6 = {}', answer: 12 },
+          { id: 'a13', text: '4 · 5 = {}', answer: 20 },
+          { id: 'a14', text: '7 · 2 = {}', answer: 14 },
+          { id: 'a15', text: '9 · 3 = {}', answer: 27 }
         ]
       },
       {
@@ -508,16 +508,16 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Was fehlt? Notiere!',
         problems: [
-          { id: 'b1', text: '2 · {} = 16', answer: 8 },
-          { id: 'b2', text: '3 · {} = 12', answer: 4 },
-          { id: 'b3', text: '10 · {} = 50', answer: 5 },
-          { id: 'b4', text: '6 · {} = 36', answer: 6 },
-          { id: 'b5', text: '9 · {} = 45', answer: 5 },
-          { id: 'b6', text: '{} · 4 = 16', answer: 4 },
-          { id: 'b7', text: '{} · 8 = 48', answer: 6 },
-          { id: 'b8', text: '{} · 5 = 25', answer: 5 },
-          { id: 'b9', text: '{} · 10 = 10', answer: 1 },
-          { id: 'b10', text: '{} · 7 = 56', answer: 8 }
+          { id: 'b1', text: '2 · {} = 12', answer: 6 },
+          { id: 'b2', text: '4 · {} = 20', answer: 5 },
+          { id: 'b3', text: '5 · {} = 30', answer: 6 },
+          { id: 'b4', text: '3 · {} = 15', answer: 5 },
+          { id: 'b5', text: '7 · {} = 21', answer: 3 },
+          { id: 'b6', text: '{} · 4 = 24', answer: 6 },
+          { id: 'b7', text: '{} · 6 = 42', answer: 7 },
+          { id: 'b8', text: '{} · 9 = 27', answer: 3 },
+          { id: 'b9', text: '{} · 10 = 40', answer: 4 },
+          { id: 'b10', text: '8 · {} = 48', answer: 6 }
         ]
       },
       {
@@ -596,9 +596,9 @@ export const matheTopics: Topic[] = [
         type: 'distribute',
         instruction: 'Verteile die Kekse gerecht auf die Teller!',
         problems: [
-          { id: 'p1', total: 6, plates: 2, emoji: '🍪' },
-          { id: 'p2', total: 12, plates: 3, emoji: '🍪' },
-          { id: 'p3', total: 6, plates: 3, emoji: '🍪' }
+          { id: 'p1', total: 8, plates: 2, emoji: '🍪' },
+          { id: 'p2', total: 9, plates: 3, emoji: '🍪' },
+          { id: 'p3', total: 10, plates: 5, emoji: '🍪' }
         ]
       },
       {
@@ -606,16 +606,16 @@ export const matheTopics: Topic[] = [
         type: 'fillNumber',
         instruction: 'Notiere die Ergebnisse!',
         problems: [
-          { id: 'b1', text: '8 : 2 = {}', answer: 4 },
-          { id: 'b2', text: '10 : 5 = {}', answer: 2 },
-          { id: 'b3', text: '15 : 3 = {}', answer: 5 },
-          { id: 'b4', text: '21 : 7 = {}', answer: 3 },
-          { id: 'b5', text: '12 : 4 = {}', answer: 3 },
-          { id: 'b6', text: '18 : 6 = {}', answer: 3 },
-          { id: 'b7', text: '25 : 5 = {}', answer: 5 },
-          { id: 'b8', text: '20 : 4 = {}', answer: 5 },
-          { id: 'b9', text: '64 : 8 = {}', answer: 8 },
-          { id: 'b10', text: '40 : 8 = {}', answer: 5 }
+          { id: 'b1', text: '6 : 3 = {}', answer: 2 },
+          { id: 'b2', text: '12 : 2 = {}', answer: 6 },
+          { id: 'b3', text: '14 : 7 = {}', answer: 2 },
+          { id: 'b4', text: '20 : 5 = {}', answer: 4 },
+          { id: 'b5', text: '9 : 3 = {}', answer: 3 },
+          { id: 'b6', text: '16 : 8 = {}', answer: 2 },
+          { id: 'b7', text: '21 : 3 = {}', answer: 7 },
+          { id: 'b8', text: '24 : 4 = {}', answer: 6 },
+          { id: 'b9', text: '15 : 5 = {}', answer: 3 },
+          { id: 'b10', text: '18 : 2 = {}', answer: 9 }
         ]
       },
       {
