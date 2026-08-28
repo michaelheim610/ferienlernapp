@@ -4,6 +4,8 @@ dist-ssr
 .DS_Store
 *.local
 .vite
+*.tsbuildinfo
+vite.config.d.ts
 
 # Quell-Arbeitsblatt des Lehrers (urheberrechtlich geschuetzt) - nicht veroeffentlichen
 20260802.pdf
