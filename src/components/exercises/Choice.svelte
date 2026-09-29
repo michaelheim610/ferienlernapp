@@ -51,6 +51,7 @@
   {#each exercise.questions as q (q.id)}
     {@const parts = splitTemplate(q.text)}
     <div class="q" class:done={correct[q.id]}>
+      {#if q.swatch}<span class="swatch big" style="background:{q.swatch}"></span>{/if}
       <div class="sentence">
         {#each parts as part, i}
           <span>{part}</span>

@@ -1,7 +1,7 @@
 // Datenmodell fuer alle Aufgabentypen.
 // Kern-Idee: Aufgaben sind reine Daten, generische Komponenten rendern sie.
 
-export type Subject = 'mathe' | 'deutsch'
+export type Subject = 'mathe' | 'deutsch' | 'english'
 
 export interface Topic {
   id: string
@@ -36,6 +36,7 @@ export interface ConnectItem {
   id: string
   group: string
   label?: string
+  color?: string // Farbkreis (z. B. fuer Englisch-Farben), CSS-Farbe
   z?: number // Zehner (fuer Bloecke)
   e?: number // Einer (fuer Bloecke)
 }
@@ -56,14 +57,14 @@ export interface FillNumberExercise extends Base {
 }
 
 /* Wort/Woerter eintragen. answer kann mehrere gueltige Loesungen sein. */
-export interface TextProblem { id: string; text: string; answer: string | string[]; width?: number }
+export interface TextProblem { id: string; text: string; answer: string | string[]; width?: number; swatch?: string }
 export interface FillTextExercise extends Base {
   type: 'fillText'
   problems: TextProblem[]
 }
 
 /* Auswahl (z.B. Satzzeichen, Artikel). */
-export interface ChoiceQuestion { id: string; text: string; options: string[]; answer: string }
+export interface ChoiceQuestion { id: string; text: string; options: string[]; answer: string; swatch?: string }
 export interface ChoiceExercise extends Base {
   type: 'choice'
   questions: ChoiceQuestion[]

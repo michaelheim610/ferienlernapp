@@ -30,6 +30,7 @@
   {#each exercise.problems as p (p.id)}
     {@const parts = splitTemplate(p.text)}
     <div class="prob" class:done={correct[p.id]}>
+      {#if p.swatch}<span class="swatch" style="background:{p.swatch}"></span>{/if}
       {#each parts as part, i}
         <span class="txt">{part}</span>
         {#if i < parts.length - 1}

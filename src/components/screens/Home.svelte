@@ -17,7 +17,7 @@
     profiles.clearActive()
   }
 
-  function subjectProgress(subjectId: 'mathe' | 'deutsch'): number {
+  function subjectProgress(subjectId: import('../../lib/types').Subject): number {
     const topics = topicsOf(subjectId)
     const all = topics.flatMap((t) => t.exercises)
     if (all.length === 0) return 0

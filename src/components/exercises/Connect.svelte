@@ -64,11 +64,15 @@
         class="item left"
         class:selected={selected === it.id}
         class:matched={matched[it.id]}
+        class:swatch-cell={!!it.color}
         style={matched[it.id] ? `border-color:${matchColor[it.group]};background:${matchColor[it.group]}22;` : ''}
         on:click={() => tapLeft(it)}
       >
         {#if exercise.leftKind === 'blocks' && it.z !== undefined}
           <PlaceBlocks z={it.z} e={it.e ?? 0} small />
+        {:else if it.color}
+          <span class="swatch" style="background:{it.color}"></span>
+          {#if it.label}<span class="clbl">{it.label}</span>{/if}
         {:else}
           {it.label}
         {/if}
@@ -87,7 +91,8 @@
         on:click={() => tapRight(it)}
       >
         {#if matched[it.id]}<span class="dot" style="background:{matchColor[it.group]}"></span>{/if}
-        {it.label}
+        {#if it.color}<span class="swatch" style="background:{it.color}"></span>{/if}
+        {it.label ?? ''}
       </button>
     {/each}
   </div>
@@ -124,6 +129,8 @@
   .item:active { transform: scale(0.97); }
   .left { justify-content: flex-start; }
   .right { justify-content: flex-end; }
+  .swatch-cell { justify-content: center; gap: 12px; }
+  .clbl { font-size: 1.15rem; }
   .selected { border-color: var(--gold); box-shadow: 0 0 0 4px rgba(255, 210, 63, 0.4); }
   .matched { cursor: default; }
   .wrong { border-color: var(--red); animation: shake 0.4s; }

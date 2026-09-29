@@ -6,8 +6,9 @@
 
 import { matheTopics } from '../src/data/exercises/mathe.ts'
 import { deutschTopics } from '../src/data/exercises/deutsch.ts'
+import { englishTopics } from '../src/data/exercises/english.ts'
 
-const topics: any[] = [...matheTopics, ...deutschTopics]
+const topics: any[] = [...matheTopics, ...deutschTopics, ...englishTopics]
 const errors: string[] = []
 const seenExerciseIds = new Set<string>()
 let exerciseCount = 0
