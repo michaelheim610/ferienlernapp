@@ -20,6 +20,7 @@
   import PlaceValue from '../exercises/PlaceValue.svelte'
   import Order from '../exercises/Order.svelte'
   import Syllable from '../exercises/Syllable.svelte'
+  import Remainder from '../exercises/Remainder.svelte'
 
   export let subject: Subject
   export let topicId: string
@@ -36,7 +37,8 @@
     hundredChart: HundredChart,
     placeValue: PlaceValue,
     order: Order,
-    syllable: Syllable
+    syllable: Syllable,
+    remainder: Remainder
   }
 
   $: topic = topicById(topicId)!

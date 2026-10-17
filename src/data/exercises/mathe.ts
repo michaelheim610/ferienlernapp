@@ -674,5 +674,57 @@ export const matheTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'mathe-8',
+    subject: 'mathe',
+    index: 8,
+    title: 'Teilen mit Rest',
+    subtitle: 'Division + Kontrolle',
+    emoji: '➗',
+    exercises: [
+      {
+        id: 'mathe-8-a',
+        type: 'remainder',
+        instruction: 'Teile mit Rest und mache die Kontrolle!',
+        intro:
+          'Manchmal geht eine Geteiltaufgabe nicht glatt auf – dann bleibt ein <b>Rest</b> übrig. 🍪<br><br>' +
+          'Beispiel: <b>23 : 5 = 4 Rest 3</b> – die 5 passt 4-mal in die 23, und 3 bleiben übrig.<br><br>' +
+          'Zur <b>Kontrolle</b> rechnest du die <b>Umkehraufgabe</b>: 4 · 5 = 20 (und 20 + 3 = 23). Passt! ✓<br><br>' +
+          'Merke: Der Rest ist immer <b>kleiner</b> als die Zahl, durch die du teilst.',
+        problems: [
+          { id: 'p1', a: 23, b: 5 },
+          { id: 'p2', a: 38, b: 4 },
+          { id: 'p3', a: 17, b: 3 },
+          { id: 'p4', a: 29, b: 6 }
+        ]
+      },
+      {
+        id: 'mathe-8-b',
+        type: 'remainder',
+        instruction: 'Level 2: Teile mit Rest und kontrolliere!',
+        problems: [
+          { id: 'p1', a: 19, b: 4 },
+          { id: 'p2', a: 33, b: 5 },
+          { id: 'p3', a: 26, b: 8 },
+          { id: 'p4', a: 41, b: 6 },
+          { id: 'p5', a: 50, b: 7 }
+        ]
+      },
+      {
+        id: 'mathe-8-c',
+        type: 'remainder',
+        instruction: 'Profi: Teile mit Rest und kontrolliere!',
+        problems: [
+          { id: 'p1', a: 47, b: 6 },
+          { id: 'p2', a: 62, b: 8 },
+          { id: 'p3', a: 55, b: 9 },
+          { id: 'p4', a: 39, b: 7 },
+          { id: 'p5', a: 70, b: 8 },
+          { id: 'p6', a: 44, b: 5 }
+        ]
+      }
+    ]
   }
 ]

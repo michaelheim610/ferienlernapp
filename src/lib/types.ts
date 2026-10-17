@@ -25,6 +25,7 @@ export type Exercise =
   | PlaceValueExercise
   | OrderExercise
   | SyllableExercise
+  | RemainderExercise
 
 interface Base {
   id: string
@@ -123,4 +124,12 @@ export interface SyllableWord { id: string; word: string; syllables: string[]; k
 export interface SyllableExercise extends Base {
   type: 'syllable'
   words: SyllableWord[]
+}
+
+/* Teilen mit Rest: a : b = q Rest r, dazu die Kontrolle/Umkehraufgabe q * b = (a - r). */
+export interface RemainderProblem { id: string; a: number; b: number }
+export interface RemainderExercise extends Base {
+  type: 'remainder'
+  intro?: string // kurze Erklaerung oben
+  problems: RemainderProblem[]
 }

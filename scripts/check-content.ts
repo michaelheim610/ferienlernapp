@@ -193,6 +193,16 @@ for (const t of topics) {
         }
         break
 
+      case 'remainder':
+        uniqueIds(w, ex.problems)
+        for (const p of ex.problems) {
+          problemCount++
+          if (!p.b || p.b <= 0) err(w, `Teiler muss > 0 sein (${p.id})`)
+          else if (p.a < 0) err(w, `Zahl darf nicht negativ sein (${p.id})`)
+          else if (p.a % p.b >= p.b) err(w, `Rest nicht kleiner als Teiler (${p.id})`)
+        }
+        break
+
       default:
         err(w, `unbekannter Typ "${ex.type}"`)
     }
