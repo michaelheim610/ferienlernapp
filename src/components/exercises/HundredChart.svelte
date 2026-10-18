@@ -88,7 +88,9 @@
   {/if}
 
   {#if !allDone}
-    <NumberPad on:key={onKey} />
+    <div class="keydock">
+      <NumberPad on:key={onKey} />
+    </div>
   {/if}
 </div>
 

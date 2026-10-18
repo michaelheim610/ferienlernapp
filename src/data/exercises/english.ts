@@ -643,5 +643,76 @@ export const englishTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'english-10',
+    subject: 'english',
+    index: 10,
+    title: 'Hello, this is me!',
+    subtitle: 'Begrüßen & vorstellen',
+    emoji: '👋',
+    exercises: [
+      {
+        id: 'english-10-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Deutsch und Englisch!',
+        left: [
+          { id: 'l1', group: 'hello', label: 'Hallo' },
+          { id: 'l2', group: 'bye', label: 'Tschüss' },
+          { id: 'l3', group: 'thanks', label: 'Danke' },
+          { id: 'l4', group: 'please', label: 'Bitte' },
+          { id: 'l5', group: 'yes', label: 'Ja' },
+          { id: 'l6', group: 'no', label: 'Nein' }
+        ],
+        right: [
+          { id: 'r1', group: 'hello', label: 'Hello' },
+          { id: 'r2', group: 'bye', label: 'Goodbye' },
+          { id: 'r3', group: 'thanks', label: 'Thank you' },
+          { id: 'r4', group: 'please', label: 'Please' },
+          { id: 'r5', group: 'yes', label: 'Yes' },
+          { id: 'r6', group: 'no', label: 'No' }
+        ]
+      },
+      {
+        id: 'english-10-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: 'Hallo = {}', options: ['Hello', 'Goodbye', 'Please'], answer: 'Hello' },
+          { id: 'q2', text: 'Danke = {}', options: ['Thank you', 'Please', 'Yes'], answer: 'Thank you' },
+          { id: 'q3', text: 'Ja = {}', options: ['Yes', 'No', 'Hello'], answer: 'Yes' },
+          { id: 'q4', text: 'Nein = {}', options: ['No', 'Yes', 'Goodbye'], answer: 'No' },
+          { id: 'q5', text: 'Bitte = {}', options: ['Please', 'Thank you', 'Hello'], answer: 'Please' },
+          { id: 'q6', text: 'Tschüss = {}', options: ['Goodbye', 'Hello', 'Yes'], answer: 'Goodbye' }
+        ]
+      },
+      {
+        id: 'english-10-c',
+        type: 'choice',
+        instruction: 'Sich vorstellen: Welches Wort passt in den Satz?',
+        questions: [
+          { id: 'q1', text: 'My {} is Lisa.', options: ['name', 'age', 'dog'], answer: 'name' },
+          { id: 'q2', text: 'I {} eight years old.', options: ['am', 'is', 'are'], answer: 'am' },
+          { id: 'q3', text: 'I am {} Germany.', options: ['from', 'to', 'in'], answer: 'from' },
+          { id: 'q4', text: '{} are you?', options: ['How', 'Who', 'What'], answer: 'How' },
+          { id: 'q5', text: 'Nice to {} you.', options: ['meet', 'eat', 'see'], answer: 'meet' },
+          { id: 'q6', text: 'This {} me.', options: ['is', 'am', 'are'], answer: 'is' }
+        ]
+      },
+      {
+        id: 'english-10-d',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: 'Hallo → {}', answer: 'Hello' },
+          { id: 'p2', text: 'Tschüss → {}', answer: ['Goodbye', 'bye'] },
+          { id: 'p3', text: 'Danke → {}', answer: ['Thank you', 'thanks'] },
+          { id: 'p4', text: 'Ja → {}', answer: 'Yes' },
+          { id: 'p5', text: 'Nein → {}', answer: 'No' },
+          { id: 'p6', text: 'Bitte → {}', answer: 'Please' }
+        ]
+      }
+    ]
   }
 ]

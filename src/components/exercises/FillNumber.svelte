@@ -87,7 +87,7 @@
   </div>
 
   {#if !allDone}
-    <div class="pad-wrap">
+    <div class="keydock">
       <NumberPad on:key={onKey} />
     </div>
   {/if}
@@ -116,5 +116,4 @@
   }
   .txt { white-space: pre; }
   .answer-box { min-width: 56px; min-height: 52px; font-size: 1.4rem; }
-  .pad-wrap { margin-top: 4px; }
 </style>

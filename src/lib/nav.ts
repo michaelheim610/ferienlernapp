@@ -1,7 +1,15 @@
 import { writable } from 'svelte/store'
 import type { Subject } from './types'
 
-export type View = 'home' | 'subject' | 'exercise' | 'reward' | 'leaderboard' | 'collection' | 'coupons'
+export type View =
+  | 'home'
+  | 'subject'
+  | 'exercise'
+  | 'reward'
+  | 'leaderboard'
+  | 'collection'
+  | 'coupons'
+  | 'papa'
 
 export interface NavState {
   view: View
@@ -42,4 +50,8 @@ export function goCollection() {
 
 export function goCoupons() {
   nav.update((n) => ({ ...n, view: 'coupons' }))
+}
+
+export function goPapa() {
+  nav.update((n) => ({ ...n, view: 'papa' }))
 }

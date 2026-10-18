@@ -10,7 +10,7 @@
 
   $: stars = $progress.stars
   $: redeemed = $progress.couponsRedeemed ?? {}
-  $: next = nextCoupon(stars)
+  $: next = nextCoupon(stars, $coupons)
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
   $: name = active?.name ?? 'dich'
 
@@ -92,7 +92,7 @@
   </div>
 
   <div class="tickets">
-    {#each coupons as c (c.id)}
+    {#each $coupons as c (c.id)}
       {@const s = state(c, stars, redeemed)}
       <div class="ticket" class:locked={s === 'locked'} class:redeemed={s === 'redeemed'}>
         <div class="stub">

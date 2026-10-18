@@ -1,6 +1,6 @@
 <script lang="ts">
   import { subjects, topicsOf } from '../../data/topics'
-  import { goSubject, goLeaderboard, goCollection, goCoupons } from '../../lib/nav'
+  import { goSubject, goLeaderboard, goCollection, goCoupons, goPapa } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { profiles } from '../../lib/profiles'
   import { setSoundEnabled } from '../../lib/sound'
@@ -14,7 +14,7 @@
   $: isCloud = !!active?.classCode
   $: next = nextCollectible($progress.stars)
   // freigeschaltete, aber noch nicht eingeloeste Gutscheine
-  $: newCoupons = coupons.filter(
+  $: newCoupons = $coupons.filter(
     (c) => $progress.stars >= c.stars && !($progress.couponsRedeemed ?? {})[c.id]
   ).length
 
@@ -52,6 +52,7 @@
     <button class="iconbtn" on:click={toggleSound} aria-label="Ton an/aus">
       {$progress.soundOn ? '🔊' : '🔇'}
     </button>
+    <button class="iconbtn papa" on:click={goPapa} aria-label="Papa-Zugang">🔧</button>
   </div>
 
   <header class="hero">
@@ -132,6 +133,8 @@
   .tile .name { font-size: 1.7rem; font-weight: 800; }
   .tile .bar { width: 100%; }
   .tile .frac { font-weight: 800; opacity: 0.95; }
+
+  .iconbtn.papa { opacity: 0.5; font-size: 1.1rem; }
 
   .streak-badge {
     display: inline-flex;
