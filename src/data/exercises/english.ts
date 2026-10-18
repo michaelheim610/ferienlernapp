@@ -469,5 +469,179 @@ export const englishTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'english-7',
+    subject: 'english',
+    index: 7,
+    title: 'My Body',
+    subtitle: 'Körperteile',
+    emoji: '🧍',
+    exercises: [
+      {
+        id: 'english-7-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'hand', label: '✋' },
+          { id: 'l2', group: 'foot', label: '🦶' },
+          { id: 'l3', group: 'eye', label: '👁️' },
+          { id: 'l4', group: 'ear', label: '👂' },
+          { id: 'l5', group: 'nose', label: '👃' },
+          { id: 'l6', group: 'mouth', label: '👄' }
+        ],
+        right: [
+          { id: 'r1', group: 'hand', label: 'hand' },
+          { id: 'r2', group: 'foot', label: 'foot' },
+          { id: 'r3', group: 'eye', label: 'eye' },
+          { id: 'r4', group: 'ear', label: 'ear' },
+          { id: 'r5', group: 'nose', label: 'nose' },
+          { id: 'r6', group: 'mouth', label: 'mouth' }
+        ]
+      },
+      {
+        id: 'english-7-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: '✋ → {}', options: ['hand', 'foot', 'ear'], answer: 'hand' },
+          { id: 'q2', text: '🦶 → {}', options: ['eye', 'foot', 'hand'], answer: 'foot' },
+          { id: 'q3', text: '👁️ → {}', options: ['eye', 'ear', 'nose'], answer: 'eye' },
+          { id: 'q4', text: '👂 → {}', options: ['ear', 'eye', 'mouth'], answer: 'ear' },
+          { id: 'q5', text: '👃 → {}', options: ['nose', 'mouth', 'eye'], answer: 'nose' },
+          { id: 'q6', text: '👄 → {}', options: ['mouth', 'nose', 'ear'], answer: 'mouth' }
+        ]
+      },
+      {
+        id: 'english-7-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: '✋ → {}', answer: 'hand' },
+          { id: 'p2', text: '🦶 → {}', answer: 'foot' },
+          { id: 'p3', text: '👁️ → {}', answer: 'eye' },
+          { id: 'p4', text: '👂 → {}', answer: 'ear' },
+          { id: 'p5', text: '👃 → {}', answer: 'nose' },
+          { id: 'p6', text: '👄 → {}', answer: 'mouth' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'english-8',
+    subject: 'english',
+    index: 8,
+    title: 'Clothes',
+    subtitle: 'Kleidung',
+    emoji: '👕',
+    exercises: [
+      {
+        id: 'english-8-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'tshirt', label: '👕' },
+          { id: 'l2', group: 'trousers', label: '👖' },
+          { id: 'l3', group: 'shoes', label: '👟' },
+          { id: 'l4', group: 'dress', label: '👗' },
+          { id: 'l5', group: 'hat', label: '🎩' },
+          { id: 'l6', group: 'socks', label: '🧦' }
+        ],
+        right: [
+          { id: 'r1', group: 'tshirt', label: 't-shirt' },
+          { id: 'r2', group: 'trousers', label: 'trousers' },
+          { id: 'r3', group: 'shoes', label: 'shoes' },
+          { id: 'r4', group: 'dress', label: 'dress' },
+          { id: 'r5', group: 'hat', label: 'hat' },
+          { id: 'r6', group: 'socks', label: 'socks' }
+        ]
+      },
+      {
+        id: 'english-8-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: '👕 → {}', options: ['t-shirt', 'dress', 'socks'], answer: 't-shirt' },
+          { id: 'q2', text: '👖 → {}', options: ['shoes', 'trousers', 'hat'], answer: 'trousers' },
+          { id: 'q3', text: '👟 → {}', options: ['shoes', 'socks', 'trousers'], answer: 'shoes' },
+          { id: 'q4', text: '👗 → {}', options: ['dress', 't-shirt', 'hat'], answer: 'dress' },
+          { id: 'q5', text: '🎩 → {}', options: ['hat', 'dress', 'shoes'], answer: 'hat' },
+          { id: 'q6', text: '🧦 → {}', options: ['socks', 'shoes', 't-shirt'], answer: 'socks' }
+        ]
+      },
+      {
+        id: 'english-8-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: '👕 → {}', answer: ['t-shirt', 'tshirt'] },
+          { id: 'p2', text: '👖 → {}', answer: 'trousers' },
+          { id: 'p3', text: '👟 → {}', answer: 'shoes' },
+          { id: 'p4', text: '👗 → {}', answer: 'dress' },
+          { id: 'p5', text: '🎩 → {}', answer: 'hat' },
+          { id: 'p6', text: '🧦 → {}', answer: 'socks' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'english-9',
+    subject: 'english',
+    index: 9,
+    title: 'Festivals',
+    subtitle: 'Feste feiern',
+    emoji: '🎉',
+    exercises: [
+      {
+        id: 'english-9-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'christmas', label: '🎄' },
+          { id: 'l2', group: 'halloween', label: '🎃' },
+          { id: 'l3', group: 'easter', label: '🐰' },
+          { id: 'l4', group: 'birthday', label: '🎂' },
+          { id: 'l5', group: 'present', label: '🎁' },
+          { id: 'l6', group: 'santa', label: '🎅' }
+        ],
+        right: [
+          { id: 'r1', group: 'christmas', label: 'Christmas' },
+          { id: 'r2', group: 'halloween', label: 'Halloween' },
+          { id: 'r3', group: 'easter', label: 'Easter' },
+          { id: 'r4', group: 'birthday', label: 'birthday' },
+          { id: 'r5', group: 'present', label: 'present' },
+          { id: 'r6', group: 'santa', label: 'Santa' }
+        ]
+      },
+      {
+        id: 'english-9-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: '🎄 → {}', options: ['Christmas', 'Easter', 'Santa'], answer: 'Christmas' },
+          { id: 'q2', text: '🎃 → {}', options: ['Halloween', 'birthday', 'present'], answer: 'Halloween' },
+          { id: 'q3', text: '🐰 → {}', options: ['Easter', 'Christmas', 'present'], answer: 'Easter' },
+          { id: 'q4', text: '🎂 → {}', options: ['birthday', 'present', 'Halloween'], answer: 'birthday' },
+          { id: 'q5', text: '🎁 → {}', options: ['present', 'birthday', 'Santa'], answer: 'present' },
+          { id: 'q6', text: '🎅 → {}', options: ['Santa', 'Christmas', 'Easter'], answer: 'Santa' }
+        ]
+      },
+      {
+        id: 'english-9-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: '🎄 → {}', answer: 'Christmas' },
+          { id: 'p2', text: '🎃 → {}', answer: 'Halloween' },
+          { id: 'p3', text: '🐰 → {}', answer: 'Easter' },
+          { id: 'p4', text: '🎂 → {}', answer: 'birthday' },
+          { id: 'p5', text: '🎁 → {}', answer: 'present' },
+          { id: 'p6', text: '🎅 → {}', answer: 'Santa' }
+        ]
+      }
+    ]
   }
 ]
