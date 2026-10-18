@@ -91,6 +91,32 @@ export const englishTopics: Topic[] = [
           { id: 'p5', text: '{}', swatch: C.black, answer: 'black' },
           { id: 'p6', text: '{}', swatch: C.pink, answer: 'pink' }
         ]
+      },
+      {
+        id: 'english-1-e',
+        type: 'choice',
+        instruction: 'Runde 2 – Lesen: Welche Farbe ist das?',
+        questions: [
+          { id: 'q1', text: '{}', swatch: C.orange, options: ['orange', 'yellow', 'red'], answer: 'orange' },
+          { id: 'q2', text: '{}', swatch: C.white, options: ['white', 'grey', 'black'], answer: 'white' },
+          { id: 'q3', text: '{}', swatch: C.grey, options: ['grey', 'brown', 'blue'], answer: 'grey' },
+          { id: 'q4', text: '{}', swatch: C.red, options: ['red', 'pink', 'orange'], answer: 'red' },
+          { id: 'q5', text: '{}', swatch: C.green, options: ['green', 'blue', 'grey'], answer: 'green' },
+          { id: 'q6', text: '{}', swatch: C.yellow, options: ['yellow', 'white', 'orange'], answer: 'yellow' }
+        ]
+      },
+      {
+        id: 'english-1-f',
+        type: 'fillText',
+        instruction: 'Profi – Schreiben: Wie heißt die Farbe auf Englisch?',
+        problems: [
+          { id: 'p1', text: '{}', swatch: C.orange, answer: 'orange' },
+          { id: 'p2', text: '{}', swatch: C.yellow, answer: 'yellow' },
+          { id: 'p3', text: '{}', swatch: C.green, answer: 'green' },
+          { id: 'p4', text: '{}', swatch: C.grey, answer: 'grey' },
+          { id: 'p5', text: '{}', swatch: C.white, answer: 'white' },
+          { id: 'p6', text: '{}', swatch: C.brown, answer: 'brown' }
+        ]
       }
     ]
   },
@@ -164,6 +190,107 @@ export const englishTopics: Topic[] = [
           { id: 'p3', text: '6 → {}', answer: 'six' },
           { id: 'p4', text: '7 → {}', answer: 'seven' },
           { id: 'p5', text: '9 → {}', answer: 'nine' },
+          { id: 'p6', text: '10 → {}', answer: 'ten' }
+        ]
+      },
+      {
+        id: 'english-2-e',
+        type: 'choice',
+        instruction: 'Runde 2 – Lesen: Welche Zahl ist das englische Wort?',
+        questions: [
+          { id: 'q1', text: 'one → {}', options: ['1', '2', '3'], answer: '1' },
+          { id: 'q2', text: 'six → {}', options: ['5', '6', '7'], answer: '6' },
+          { id: 'q3', text: 'nine → {}', options: ['8', '9', '10'], answer: '9' },
+          { id: 'q4', text: 'four → {}', options: ['3', '4', '5'], answer: '4' },
+          { id: 'q5', text: 'ten → {}', options: ['1', '10', '9'], answer: '10' },
+          { id: 'q6', text: 'three → {}', options: ['2', '3', '8'], answer: '3' }
+        ]
+      },
+      {
+        id: 'english-2-f',
+        type: 'fillText',
+        instruction: 'Profi – Schreiben: Wie heißt die Zahl auf Englisch?',
+        problems: [
+          { id: 'p1', text: '1 → {}', answer: 'one' },
+          { id: 'p2', text: '3 → {}', answer: 'three' },
+          { id: 'p3', text: '5 → {}', answer: 'five' },
+          { id: 'p4', text: '8 → {}', answer: 'eight' },
+          { id: 'p5', text: '6 → {}', answer: 'six' },
+          { id: 'p6', text: '10 → {}', answer: 'ten' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'english-3',
+    subject: 'english',
+    index: 3,
+    title: 'Colours & Numbers',
+    subtitle: 'Alles gemischt',
+    emoji: '🌈',
+    exercises: [
+      {
+        id: 'english-3-a',
+        type: 'connect',
+        instruction: 'Verbinde die Farben mit dem englischen Wort!',
+        left: [
+          { id: 'l1', group: 'red', color: C.red },
+          { id: 'l2', group: 'blue', color: C.blue },
+          { id: 'l3', group: 'yellow', color: C.yellow },
+          { id: 'l4', group: 'green', color: C.green },
+          { id: 'l5', group: 'pink', color: C.pink }
+        ],
+        right: [
+          { id: 'r1', group: 'red', label: 'red' },
+          { id: 'r2', group: 'blue', label: 'blue' },
+          { id: 'r3', group: 'yellow', label: 'yellow' },
+          { id: 'r4', group: 'green', label: 'green' },
+          { id: 'r5', group: 'pink', label: 'pink' }
+        ]
+      },
+      {
+        id: 'english-3-b',
+        type: 'connect',
+        instruction: 'Verbinde die Zahl mit dem englischen Wort!',
+        left: [
+          { id: 'l1', group: '2', label: '2' },
+          { id: 'l2', group: '4', label: '4' },
+          { id: 'l3', group: '6', label: '6' },
+          { id: 'l4', group: '8', label: '8' },
+          { id: 'l5', group: '10', label: '10' }
+        ],
+        right: [
+          { id: 'r1', group: '2', label: 'two' },
+          { id: 'r2', group: '4', label: 'four' },
+          { id: 'r3', group: '6', label: 'six' },
+          { id: 'r4', group: '8', label: 'eight' },
+          { id: 'r5', group: '10', label: 'ten' }
+        ]
+      },
+      {
+        id: 'english-3-c',
+        type: 'choice',
+        instruction: 'Gemischt: Farbe oder Zahl? Tippe richtig an!',
+        questions: [
+          { id: 'q1', text: '{}', swatch: C.red, options: ['red', 'blue', 'green'], answer: 'red' },
+          { id: 'q2', text: 'five → {}', options: ['4', '5', '6'], answer: '5' },
+          { id: 'q3', text: '{}', swatch: C.yellow, options: ['yellow', 'orange', 'white'], answer: 'yellow' },
+          { id: 'q4', text: 'eight → {}', options: ['7', '8', '9'], answer: '8' },
+          { id: 'q5', text: '{}', swatch: C.blue, options: ['blue', 'black', 'grey'], answer: 'blue' },
+          { id: 'q6', text: 'two → {}', options: ['1', '2', '3'], answer: '2' }
+        ]
+      },
+      {
+        id: 'english-3-d',
+        type: 'fillText',
+        instruction: 'Profi – gemischt: Schreibe das englische Wort!',
+        problems: [
+          { id: 'p1', text: '{}', swatch: C.green, answer: 'green' },
+          { id: 'p2', text: '3 → {}', answer: 'three' },
+          { id: 'p3', text: '{}', swatch: C.pink, answer: 'pink' },
+          { id: 'p4', text: '7 → {}', answer: 'seven' },
+          { id: 'p5', text: '{}', swatch: C.orange, answer: 'orange' },
           { id: 'p6', text: '10 → {}', answer: 'ten' }
         ]
       }
