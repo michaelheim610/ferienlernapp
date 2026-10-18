@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { goHome } from '../../lib/nav'
+  import { goHome, goPapa } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { profiles } from '../../lib/profiles'
   import { coupons, nextCoupon, type Coupon } from '../../lib/coupons'
@@ -79,6 +79,7 @@
     <button class="iconbtn" on:click={goHome} aria-label="Zurück">←</button>
     <h2 class="space-title">🎟️ Papa-Gutscheine</h2>
     <span class="spacer"></span>
+    <button class="iconbtn" on:click={goPapa} aria-label="Papa-Zugang: Gutscheine anpassen">🔧</button>
     <span class="star-badge">⭐ {stars}</span>
   </div>
 
