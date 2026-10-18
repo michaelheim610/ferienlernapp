@@ -85,7 +85,7 @@
   <div class="lead card">
     <p>Sammle Sterne und schalte <b>echte Gutscheine</b> frei – zum Einlösen bei Papa! 🎉</p>
     {#if next}
-      <p class="goal">Noch <b>{next.stars - stars}</b> ⭐ bis {next.emoji} <b>{next.title}</b></p>
+      <p class="goal">🎁 Sammle weiter Sterne – der nächste Gutschein ist noch geheim! ✨</p>
     {:else}
       <p class="goal">Wahnsinn – du hast ALLE Gutscheine freigeschaltet! 🏆</p>
     {/if}
@@ -103,8 +103,8 @@
           <span class="kicker">PAPA-GUTSCHEIN</span>
           {#if s === 'locked'}
             <span class="title">? ? ?</span>
-            <span class="desc">Noch geheim – schalte ihn frei!</span>
-            <span class="lock-row">ab {c.stars} ⭐ · noch {c.stars - stars} ⭐</span>
+            <span class="desc">Noch geheim – sammle weiter Sterne!</span>
+            <span class="lock-row">🔒 Überraschung</span>
           {:else}
             <span class="title">{c.emoji} {c.title}</span>
             <span class="desc">{c.desc}</span>

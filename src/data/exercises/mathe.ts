@@ -745,5 +745,210 @@ export const matheTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'mathe-9',
+    subject: 'mathe',
+    index: 9,
+    title: 'Rechnen bis 1000',
+    subtitle: 'Hunderter plus & minus',
+    emoji: '💯',
+    exercises: [
+      {
+        id: 'mathe-9-a',
+        type: 'fillNumber',
+        instruction: 'Hunderter addieren!',
+        problems: [
+          { id: 'a1', text: '300 + 200 = {}', answer: 500 },
+          { id: 'a2', text: '450 + 150 = {}', answer: 600 },
+          { id: 'a3', text: '240 + 360 = {}', answer: 600 },
+          { id: 'a4', text: '520 + 280 = {}', answer: 800 },
+          { id: 'a5', text: '150 + 350 = {}', answer: 500 },
+          { id: 'a6', text: '600 + 250 = {}', answer: 850 },
+          { id: 'a7', text: '380 + 420 = {}', answer: 800 },
+          { id: 'a8', text: '170 + 330 = {}', answer: 500 }
+        ]
+      },
+      {
+        id: 'mathe-9-b',
+        type: 'fillNumber',
+        instruction: 'Hunderter subtrahieren!',
+        problems: [
+          { id: 'b1', text: '500 - 200 = {}', answer: 300 },
+          { id: 'b2', text: '800 - 350 = {}', answer: 450 },
+          { id: 'b3', text: '700 - 250 = {}', answer: 450 },
+          { id: 'b4', text: '900 - 400 = {}', answer: 500 },
+          { id: 'b5', text: '650 - 150 = {}', answer: 500 },
+          { id: 'b6', text: '1000 - 600 = {}', answer: 400 },
+          { id: 'b7', text: '540 - 240 = {}', answer: 300 },
+          { id: 'b8', text: '760 - 460 = {}', answer: 300 }
+        ]
+      },
+      {
+        id: 'mathe-9-c',
+        type: 'fillNumber',
+        instruction: 'Level 2: gemischt bis 1000!',
+        problems: [
+          { id: 'c1', text: '230 + 40 = {}', answer: 270 },
+          { id: 'c2', text: '560 - 30 = {}', answer: 530 },
+          { id: 'c3', text: '470 + 300 = {}', answer: 770 },
+          { id: 'c4', text: '880 - 600 = {}', answer: 280 },
+          { id: 'c5', text: '390 + 210 = {}', answer: 600 },
+          { id: 'c6', text: '640 - 440 = {}', answer: 200 },
+          { id: 'c7', text: '125 + 200 = {}', answer: 325 },
+          { id: 'c8', text: '750 - 500 = {}', answer: 250 }
+        ]
+      },
+      {
+        id: 'mathe-9-d',
+        type: 'fillNumber',
+        instruction: 'Profi: Rechnen bis 1000!',
+        problems: [
+          { id: 'd1', text: '340 + 250 = {}', answer: 590 },
+          { id: 'd2', text: '700 - 180 = {}', answer: 520 },
+          { id: 'd3', text: '460 + 270 = {}', answer: 730 },
+          { id: 'd4', text: '820 - 350 = {}', answer: 470 },
+          { id: 'd5', text: '290 + 310 = {}', answer: 600 },
+          { id: 'd6', text: '950 - 450 = {}', answer: 500 },
+          { id: 'd7', text: '180 + 440 = {}', answer: 620 },
+          { id: 'd8', text: '600 - 275 = {}', answer: 325 }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'mathe-10',
+    subject: 'mathe',
+    index: 10,
+    title: 'Verdoppeln & Halbieren',
+    subtitle: 'mal 2 und geteilt durch 2',
+    emoji: '✌️',
+    exercises: [
+      {
+        id: 'mathe-10-a',
+        type: 'fillNumber',
+        instruction: 'Verdopple (· 2)!',
+        problems: [
+          { id: 'a1', text: '12 · 2 = {}', answer: 24 },
+          { id: 'a2', text: '18 · 2 = {}', answer: 36 },
+          { id: 'a3', text: '25 · 2 = {}', answer: 50 },
+          { id: 'a4', text: '34 · 2 = {}', answer: 68 },
+          { id: 'a5', text: '45 · 2 = {}', answer: 90 },
+          { id: 'a6', text: '16 · 2 = {}', answer: 32 },
+          { id: 'a7', text: '23 · 2 = {}', answer: 46 },
+          { id: 'a8', text: '50 · 2 = {}', answer: 100 }
+        ]
+      },
+      {
+        id: 'mathe-10-b',
+        type: 'fillNumber',
+        instruction: 'Halbiere (: 2)!',
+        problems: [
+          { id: 'b1', text: '24 : 2 = {}', answer: 12 },
+          { id: 'b2', text: '36 : 2 = {}', answer: 18 },
+          { id: 'b3', text: '48 : 2 = {}', answer: 24 },
+          { id: 'b4', text: '60 : 2 = {}', answer: 30 },
+          { id: 'b5', text: '80 : 2 = {}', answer: 40 },
+          { id: 'b6', text: '50 : 2 = {}', answer: 25 },
+          { id: 'b7', text: '44 : 2 = {}', answer: 22 },
+          { id: 'b8', text: '90 : 2 = {}', answer: 45 }
+        ]
+      },
+      {
+        id: 'mathe-10-c',
+        type: 'fillNumber',
+        instruction: 'Profi: Verdoppeln bis 200!',
+        problems: [
+          { id: 'c1', text: '35 · 2 = {}', answer: 70 },
+          { id: 'c2', text: '48 · 2 = {}', answer: 96 },
+          { id: 'c3', text: '60 · 2 = {}', answer: 120 },
+          { id: 'c4', text: '75 · 2 = {}', answer: 150 },
+          { id: 'c5', text: '100 · 2 = {}', answer: 200 },
+          { id: 'c6', text: '55 · 2 = {}', answer: 110 },
+          { id: 'c7', text: '42 · 2 = {}', answer: 84 },
+          { id: 'c8', text: '90 · 2 = {}', answer: 180 }
+        ]
+      },
+      {
+        id: 'mathe-10-d',
+        type: 'fillNumber',
+        instruction: 'Profi: Halbieren!',
+        problems: [
+          { id: 'd1', text: '70 : 2 = {}', answer: 35 },
+          { id: 'd2', text: '96 : 2 = {}', answer: 48 },
+          { id: 'd3', text: '120 : 2 = {}', answer: 60 },
+          { id: 'd4', text: '140 : 2 = {}', answer: 70 },
+          { id: 'd5', text: '200 : 2 = {}', answer: 100 },
+          { id: 'd6', text: '66 : 2 = {}', answer: 33 },
+          { id: 'd7', text: '88 : 2 = {}', answer: 44 },
+          { id: 'd8', text: '110 : 2 = {}', answer: 55 }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'mathe-11',
+    subject: 'mathe',
+    index: 11,
+    title: 'Großer Rechen-Mix',
+    subtitle: 'alles gemischt',
+    emoji: '🎯',
+    exercises: [
+      {
+        id: 'mathe-11-a',
+        type: 'fillNumber',
+        instruction: 'Alles gemischt – zeig, was du kannst!',
+        problems: [
+          { id: 'a1', text: '6 · 7 = {}', answer: 42 },
+          { id: 'a2', text: '48 : 6 = {}', answer: 8 },
+          { id: 'a3', text: '35 + 28 = {}', answer: 63 },
+          { id: 'a4', text: '90 - 45 = {}', answer: 45 },
+          { id: 'a5', text: '8 · 9 = {}', answer: 72 },
+          { id: 'a6', text: '54 : 9 = {}', answer: 6 }
+        ]
+      },
+      {
+        id: 'mathe-11-b',
+        type: 'fillNumber',
+        instruction: 'Runde 2: alles gemischt!',
+        problems: [
+          { id: 'b1', text: '7 · 8 = {}', answer: 56 },
+          { id: 'b2', text: '63 : 7 = {}', answer: 9 },
+          { id: 'b3', text: '47 + 39 = {}', answer: 86 },
+          { id: 'b4', text: '100 - 62 = {}', answer: 38 },
+          { id: 'b5', text: '9 · 6 = {}', answer: 54 },
+          { id: 'b6', text: '72 : 8 = {}', answer: 9 }
+        ]
+      },
+      {
+        id: 'mathe-11-c',
+        type: 'fillNumber',
+        instruction: 'Level 3: gemischt!',
+        problems: [
+          { id: 'c1', text: '56 + 37 = {}', answer: 93 },
+          { id: 'c2', text: '84 - 29 = {}', answer: 55 },
+          { id: 'c3', text: '6 · 8 = {}', answer: 48 },
+          { id: 'c4', text: '40 : 5 = {}', answer: 8 },
+          { id: 'c5', text: '9 · 9 = {}', answer: 81 },
+          { id: 'c6', text: '27 : 3 = {}', answer: 9 }
+        ]
+      },
+      {
+        id: 'mathe-11-d',
+        type: 'fillNumber',
+        instruction: 'Profi: der große Mix!',
+        problems: [
+          { id: 'd1', text: '48 + 46 = {}', answer: 94 },
+          { id: 'd2', text: '91 - 58 = {}', answer: 33 },
+          { id: 'd3', text: '7 · 7 = {}', answer: 49 },
+          { id: 'd4', text: '56 : 8 = {}', answer: 7 },
+          { id: 'd5', text: '8 · 6 = {}', answer: 48 },
+          { id: 'd6', text: '45 : 9 = {}', answer: 5 }
+        ]
+      }
+    ]
   }
 ]

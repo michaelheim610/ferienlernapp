@@ -592,5 +592,225 @@ export const deutschTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'deutsch-8',
+    subject: 'deutsch',
+    index: 8,
+    title: 'Reimwörter',
+    subtitle: 'Was klingt gleich?',
+    emoji: '🎵',
+    exercises: [
+      {
+        id: 'deutsch-8-a',
+        type: 'choice',
+        instruction: 'Welches Wort reimt sich? Tippe es an!',
+        questions: [
+          { id: 'q1', text: 'Haus reimt sich auf {}', options: ['Maus', 'Ball', 'Tisch'], answer: 'Maus' },
+          { id: 'q2', text: 'Baum reimt sich auf {}', options: ['Traum', 'Hund', 'Stern'], answer: 'Traum' },
+          { id: 'q3', text: 'Katze reimt sich auf {}', options: ['Tatze', 'Blume', 'Auto'], answer: 'Tatze' },
+          { id: 'q4', text: 'Hand reimt sich auf {}', options: ['Sand', 'Mond', 'Fisch'], answer: 'Sand' },
+          { id: 'q5', text: 'Sonne reimt sich auf {}', options: ['Tonne', 'Berg', 'Ente'], answer: 'Tonne' },
+          { id: 'q6', text: 'Ball reimt sich auf {}', options: ['Knall', 'Rose', 'Wolke'], answer: 'Knall' }
+        ]
+      },
+      {
+        id: 'deutsch-8-b',
+        type: 'choice',
+        instruction: 'Runde 2: Welches Wort reimt sich?',
+        questions: [
+          { id: 'q1', text: 'Fisch reimt sich auf {}', options: ['Tisch', 'Baum', 'Hand'], answer: 'Tisch' },
+          { id: 'q2', text: 'Hut reimt sich auf {}', options: ['gut', 'klein', 'rot'], answer: 'gut' },
+          { id: 'q3', text: 'Stein reimt sich auf {}', options: ['klein', 'groß', 'warm'], answer: 'klein' },
+          { id: 'q4', text: 'Rose reimt sich auf {}', options: ['Hose', 'Jacke', 'Schuh'], answer: 'Hose' },
+          { id: 'q5', text: 'Nacht reimt sich auf {}', options: ['acht', 'drei', 'null'], answer: 'acht' },
+          { id: 'q6', text: 'Maus reimt sich auf {}', options: ['Haus', 'Turm', 'Garten'], answer: 'Haus' }
+        ]
+      },
+      {
+        id: 'deutsch-8-c',
+        type: 'choice',
+        instruction: 'Level 3: Welches Wort reimt sich?',
+        questions: [
+          { id: 'q1', text: 'Licht reimt sich auf {}', options: ['nicht', 'dann', 'hier'], answer: 'nicht' },
+          { id: 'q2', text: 'Kuchen reimt sich auf {}', options: ['suchen', 'essen', 'backen'], answer: 'suchen' },
+          { id: 'q3', text: 'Hase reimt sich auf {}', options: ['Nase', 'Ohr', 'Auge'], answer: 'Nase' },
+          { id: 'q4', text: 'Schnee reimt sich auf {}', options: ['See', 'Fluss', 'Teich'], answer: 'See' },
+          { id: 'q5', text: 'Glück reimt sich auf {}', options: ['Stück', 'Teil', 'Rest'], answer: 'Stück' },
+          { id: 'q6', text: 'Wagen reimt sich auf {}', options: ['tragen', 'fahren', 'ziehen'], answer: 'tragen' }
+        ]
+      },
+      {
+        id: 'deutsch-8-d',
+        type: 'choice',
+        instruction: 'Profi: Welches Wort reimt sich?',
+        questions: [
+          { id: 'q1', text: 'Herz reimt sich auf {}', options: ['Schmerz', 'Weh', 'Aua'], answer: 'Schmerz' },
+          { id: 'q2', text: 'Wald reimt sich auf {}', options: ['bald', 'gleich', 'jetzt'], answer: 'bald' },
+          { id: 'q3', text: 'Licht reimt sich auf {}', options: ['Gedicht', 'Vers', 'Reim'], answer: 'Gedicht' },
+          { id: 'q4', text: 'Maus reimt sich auf {}', options: ['raus', 'rein', 'weg'], answer: 'raus' },
+          { id: 'q5', text: 'Hand reimt sich auf {}', options: ['Wand', 'Decke', 'Boden'], answer: 'Wand' },
+          { id: 'q6', text: 'Tüte reimt sich auf {}', options: ['Blüte', 'Tasche', 'Beutel'], answer: 'Blüte' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'deutsch-9',
+    subject: 'deutsch',
+    index: 9,
+    title: 'Mehr Wortarten',
+    subtitle: 'Nomen, Verben, Adjektive',
+    emoji: '🧩',
+    exercises: [
+      {
+        id: 'deutsch-9-a',
+        type: 'classify',
+        instruction: 'Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'a1', text: 'Garten', category: 'nomen' },
+          { id: 'a2', text: 'hüpfen', category: 'verb' },
+          { id: 'a3', text: 'weich', category: 'adjektiv' },
+          { id: 'a4', text: 'Fenster', category: 'nomen' },
+          { id: 'a5', text: 'lesen', category: 'verb' },
+          { id: 'a6', text: 'süß', category: 'adjektiv' },
+          { id: 'a7', text: 'Wolke', category: 'nomen' },
+          { id: 'a8', text: 'fallen', category: 'verb' },
+          { id: 'a9', text: 'dünn', category: 'adjektiv' },
+          { id: 'a10', text: 'Löffel', category: 'nomen' },
+          { id: 'a11', text: 'zeigen', category: 'verb' },
+          { id: 'a12', text: 'frech', category: 'adjektiv' }
+        ]
+      },
+      {
+        id: 'deutsch-9-b',
+        type: 'classify',
+        instruction: 'Runde 2: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'b1', text: 'Brücke', category: 'nomen' },
+          { id: 'b2', text: 'klingeln', category: 'verb' },
+          { id: 'b3', text: 'hell', category: 'adjektiv' },
+          { id: 'b4', text: 'Teller', category: 'nomen' },
+          { id: 'b5', text: 'wandern', category: 'verb' },
+          { id: 'b6', text: 'krumm', category: 'adjektiv' },
+          { id: 'b7', text: 'Nadel', category: 'nomen' },
+          { id: 'b8', text: 'flüstern', category: 'verb' },
+          { id: 'b9', text: 'sanft', category: 'adjektiv' },
+          { id: 'b10', text: 'Kissen', category: 'nomen' },
+          { id: 'b11', text: 'bügeln', category: 'verb' },
+          { id: 'b12', text: 'eckig', category: 'adjektiv' }
+        ]
+      },
+      {
+        id: 'deutsch-9-c',
+        type: 'classify',
+        instruction: 'Level 3: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'c1', text: 'Wiese', category: 'nomen' },
+          { id: 'c2', text: 'graben', category: 'verb' },
+          { id: 'c3', text: 'schnell', category: 'adjektiv' },
+          { id: 'c4', text: 'Regen', category: 'nomen' },
+          { id: 'c5', text: 'hören', category: 'verb' },
+          { id: 'c6', text: 'laut', category: 'adjektiv' },
+          { id: 'c7', text: 'Schuh', category: 'nomen' },
+          { id: 'c8', text: 'binden', category: 'verb' },
+          { id: 'c9', text: 'eng', category: 'adjektiv' },
+          { id: 'c10', text: 'Tasse', category: 'nomen' },
+          { id: 'c11', text: 'gießen', category: 'verb' },
+          { id: 'c12', text: 'voll', category: 'adjektiv' }
+        ]
+      },
+      {
+        id: 'deutsch-9-d',
+        type: 'classify',
+        instruction: 'Profi: Nomen blau, Verben rot, Adjektive grün!',
+        categories: [
+          { id: 'nomen', label: 'Nomen', color: 'var(--wa-nomen)' },
+          { id: 'verb', label: 'Verb', color: 'var(--wa-verb)' },
+          { id: 'adjektiv', label: 'Adjektiv', color: 'var(--wa-adjektiv)' }
+        ],
+        words: [
+          { id: 'd1', text: 'Treppe', category: 'nomen' },
+          { id: 'd2', text: 'steigen', category: 'verb' },
+          { id: 'd3', text: 'steil', category: 'adjektiv' },
+          { id: 'd4', text: 'Feder', category: 'nomen' },
+          { id: 'd5', text: 'schreiben', category: 'verb' },
+          { id: 'd6', text: 'leicht', category: 'adjektiv' },
+          { id: 'd7', text: 'Wurzel', category: 'nomen' },
+          { id: 'd8', text: 'wachsen', category: 'verb' },
+          { id: 'd9', text: 'tief', category: 'adjektiv' },
+          { id: 'd10', text: 'Korb', category: 'nomen' },
+          { id: 'd11', text: 'tragen', category: 'verb' },
+          { id: 'd12', text: 'schwer', category: 'adjektiv' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'deutsch-10',
+    subject: 'deutsch',
+    index: 10,
+    title: 'der, die oder das?',
+    subtitle: 'Die richtigen Artikel',
+    emoji: '🏷️',
+    exercises: [
+      {
+        id: 'deutsch-10-a',
+        type: 'choice',
+        instruction: 'Welcher Artikel passt? Tippe ihn an!',
+        questions: [
+          { id: 'q1', text: '{} Mond', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q2', text: '{} Fahrrad', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q3', text: '{} Treppe', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q4', text: '{} Garten', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q5', text: '{} Wiese', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q6', text: '{} Fenster', options: ['der', 'die', 'das'], answer: 'das' }
+        ]
+      },
+      {
+        id: 'deutsch-10-b',
+        type: 'choice',
+        instruction: 'Runde 2: Welcher Artikel passt?',
+        questions: [
+          { id: 'q1', text: '{} Blume', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q2', text: '{} Stern', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q3', text: '{} Buch', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q4', text: '{} Gabel', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q5', text: '{} Löffel', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q6', text: '{} Kissen', options: ['der', 'die', 'das'], answer: 'das' }
+        ]
+      },
+      {
+        id: 'deutsch-10-c',
+        type: 'choice',
+        instruction: 'Profi: Welcher Artikel passt?',
+        questions: [
+          { id: 'q1', text: '{} Apfel', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q2', text: '{} Banane', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q3', text: '{} Auto', options: ['der', 'die', 'das'], answer: 'das' },
+          { id: 'q4', text: '{} Sonne', options: ['der', 'die', 'das'], answer: 'die' },
+          { id: 'q5', text: '{} Berg', options: ['der', 'die', 'das'], answer: 'der' },
+          { id: 'q6', text: '{} Haus', options: ['der', 'die', 'das'], answer: 'das' }
+        ]
+      }
+    ]
   }
 ]
