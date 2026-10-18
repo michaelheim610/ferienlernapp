@@ -5,6 +5,7 @@
   import { goSubject, goExercise, goReward } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { newlyUnlocked, type Collectible } from '../../lib/collectibles'
+  import { newlyUnlockedCoupon, type Coupon } from '../../lib/coupons'
   import { playFanfare } from '../../lib/sound'
 
   import Confetti from '../ui/Confetti.svelte'
@@ -49,6 +50,7 @@
   let burst = 0
   let correctPulse = 0
   let unlocked: Collectible | null = null
+  let unlockedCoupon: Coupon | null = null
 
   // Bei Wechsel der Aufgabe Zustand zuruecksetzen.
   $: if (exercise) {
@@ -63,6 +65,15 @@
     progress.solve(exercise.id)
     const after = get(progress).stars
     burst += 1
+    // Gutschein hat Vorrang (MEGA-Belohnung)
+    const coup = newlyUnlockedCoupon(before, after)
+    if (coup) {
+      unlockedCoupon = coup
+      playFanfare()
+      burst += 3
+      setTimeout(() => (unlockedCoupon = null), 5000)
+      return
+    }
     const u = newlyUnlocked(before, after)
     if (u) {
       unlocked = u
@@ -122,7 +133,16 @@
   </div>
 </div>
 
-{#if unlocked}
+{#if unlockedCoupon}
+  <div class="unlock-overlay">
+    <div class="coupon-card">
+      <span class="c-kicker">🎟️ GUTSCHEIN FREIGESCHALTET! 🎟️</span>
+      <span class="big-emoji">{unlockedCoupon.emoji}</span>
+      <span class="unlock-name">{unlockedCoupon.title}</span>
+      <span class="c-sub">Jetzt bei Papa einlösbar! 🎉</span>
+    </div>
+  </div>
+{:else if unlocked}
   <div class="unlock-overlay">
     <div class="unlock-card">
       <span class="big-emoji">{unlocked.emoji}</span>
@@ -132,7 +152,7 @@
   </div>
 {/if}
 
-<Confetti {burst} big={!!unlocked} />
+<Confetti {burst} big={!!unlocked || !!unlockedCoupon} />
 
 <style>
   .head { text-align: center; margin-bottom: 16px; }
@@ -182,6 +202,25 @@
   .unlock-card .big-emoji { font-size: 4.5rem; animation: float 2s ease-in-out infinite; }
   .unlock-card .unlock-title { font-weight: 800; color: var(--violet-dark); font-size: 1.2rem; }
   .unlock-card .unlock-name { font-weight: 800; color: var(--ink); font-size: 1.6rem; }
+
+  .coupon-card {
+    background: linear-gradient(135deg, #ffe58a, #ffd23f 45%, #ffb300);
+    color: #3a2a00;
+    border-radius: var(--radius-lg);
+    padding: 24px 30px;
+    box-shadow: 0 12px 40px rgba(255, 179, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    animation: pop 0.45s ease;
+    border: 4px solid #fff6d6;
+  }
+  .coupon-card .c-kicker { font-weight: 800; letter-spacing: 1px; font-size: 0.95rem; }
+  .coupon-card .big-emoji { font-size: 5rem; animation: float 1.8s ease-in-out infinite; }
+  .coupon-card .unlock-name { font-weight: 800; font-size: 1.9rem; }
+  .coupon-card .c-sub { font-weight: 800; font-size: 1.05rem; }
 
   .star-badge.pulse { animation: starpulse 0.4s ease; }
   @keyframes starpulse {

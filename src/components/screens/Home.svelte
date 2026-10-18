@@ -1,10 +1,11 @@
 <script lang="ts">
   import { subjects, topicsOf } from '../../data/topics'
-  import { goSubject, goLeaderboard, goCollection } from '../../lib/nav'
+  import { goSubject, goLeaderboard, goCollection, goCoupons } from '../../lib/nav'
   import { progress } from '../../lib/store'
   import { profiles } from '../../lib/profiles'
   import { setSoundEnabled } from '../../lib/sound'
   import { nextCollectible } from '../../lib/collectibles'
+  import { coupons } from '../../lib/coupons'
   import Astronaut from '../ui/Astronaut.svelte'
   import ProgressBar from '../ui/ProgressBar.svelte'
   import SyncBadge from '../ui/SyncBadge.svelte'
@@ -12,6 +13,10 @@
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
   $: isCloud = !!active?.classCode
   $: next = nextCollectible($progress.stars)
+  // freigeschaltete, aber noch nicht eingeloeste Gutscheine
+  $: newCoupons = coupons.filter(
+    (c) => $progress.stars >= c.stars && !($progress.couponsRedeemed ?? {})[c.id]
+  ).length
 
   function switchProfile() {
     profiles.clearActive()
@@ -66,6 +71,11 @@
       </button>
     {/each}
   </div>
+
+  <button class="coupon-btn" on:click={goCoupons}>
+    🎟️ Papa-Gutscheine
+    {#if newCoupons > 0}<span class="newbadge">{newCoupons} neu! 🎉</span>{/if}
+  </button>
 
   <div class="extras">
     <button class="extra-btn collection" on:click={goCollection}>
@@ -159,4 +169,28 @@
   .extra-btn.collection { background: linear-gradient(180deg, var(--violet), var(--violet-dark)); }
   .extra-btn.class { background: linear-gradient(180deg, var(--gold), #e69500); color: #3a2a00; }
   .extra-btn .goal { font-size: 0.8rem; font-weight: 700; opacity: 0.9; }
+
+  .coupon-btn {
+    margin: 20px auto 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ffe58a, #ffb300);
+    color: #3a2a00;
+    font-weight: 800;
+    font-size: 1.25rem;
+    padding: 16px 28px;
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+  }
+  .coupon-btn:active { transform: scale(0.97); }
+  .coupon-btn .newbadge {
+    background: var(--red);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 999px;
+    animation: pop 0.4s ease;
+  }
 </style>

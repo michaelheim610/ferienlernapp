@@ -7,6 +7,7 @@ export interface Progress {
   soundOn: boolean
   streak: number // Tage-in-Folge-Serie
   lastPlayed?: string // YYYY-MM-DD (lokal), letzter Uebungstag
+  couponsRedeemed: Record<string, string> // couponId -> Einloese-Datum (YYYY-MM-DD)
 }
 
 // Lokales Datum als YYYY-MM-DD (nicht UTC, damit der Tageswechsel stimmt).
@@ -21,8 +22,12 @@ function keyFor(profileId: string): string {
   return `ferienlernapp.progress.v1.${profileId}`
 }
 
+function empty(): Progress {
+  return { solved: {}, stars: 0, soundOn: true, streak: 0, couponsRedeemed: {} }
+}
+
 function loadFor(profileId: string | null): Progress {
-  if (!profileId) return { solved: {}, stars: 0, soundOn: true, streak: 0 }
+  if (!profileId) return empty()
   try {
     const raw = localStorage.getItem(keyFor(profileId))
     if (raw) {
@@ -32,13 +37,14 @@ function loadFor(profileId: string | null): Progress {
         stars: p.stars ?? 0,
         soundOn: p.soundOn ?? true,
         streak: p.streak ?? 0,
-        lastPlayed: p.lastPlayed
+        lastPlayed: p.lastPlayed,
+        couponsRedeemed: p.couponsRedeemed ?? {}
       }
     }
   } catch (e) {
     // defekter Speicher -> frisch starten
   }
-  return { solved: {}, stars: 0, soundOn: true, streak: 0 }
+  return empty()
 }
 
 // Welches Profil ist gerade aktiv (bestimmt den Speicher-Schluessel).
@@ -96,11 +102,18 @@ function createProgress() {
         return { ...p, solved, stars: Object.keys(solved).length }
       })
     },
+    /** Gutschein bei Papa einloesen (abstempeln). */
+    redeemCoupon(couponId: string) {
+      store.update((p) => ({
+        ...p,
+        couponsRedeemed: { ...p.couponsRedeemed, [couponId]: localDate() }
+      }))
+    },
     toggleSound() {
       store.update((p) => ({ ...p, soundOn: !p.soundOn }))
     },
     reset() {
-      store.set({ solved: {}, stars: 0, soundOn: true, streak: 0 })
+      store.set(empty())
     }
   }
 }

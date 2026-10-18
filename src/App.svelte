@@ -14,6 +14,7 @@
   import Reward from './components/screens/Reward.svelte'
   import Leaderboard from './components/screens/Leaderboard.svelte'
   import Collection from './components/screens/Collection.svelte'
+  import Coupons from './components/screens/Coupons.svelte'
 
   // Einmalige Migration: alter Einzel-Fortschritt -> als Profil "Lisa" uebernehmen.
   onMount(() => {
@@ -79,6 +80,8 @@
   <Leaderboard />
 {:else if $nav.view === 'collection'}
   <Collection />
+{:else if $nav.view === 'coupons'}
+  <Coupons />
 {:else}
   <Home />
 {/if}
