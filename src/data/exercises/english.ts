@@ -295,5 +295,179 @@ export const englishTopics: Topic[] = [
         ]
       }
     ]
+  },
+
+  {
+    id: 'english-4',
+    subject: 'english',
+    index: 4,
+    title: 'School things',
+    subtitle: 'Sachen in der Schule',
+    emoji: '✏️',
+    exercises: [
+      {
+        id: 'english-4-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'pencil', label: '✏️' },
+          { id: 'l2', group: 'book', label: '📖' },
+          { id: 'l3', group: 'ruler', label: '📏' },
+          { id: 'l4', group: 'scissors', label: '✂️' },
+          { id: 'l5', group: 'bag', label: '🎒' },
+          { id: 'l6', group: 'pen', label: '🖊️' }
+        ],
+        right: [
+          { id: 'r1', group: 'pencil', label: 'pencil' },
+          { id: 'r2', group: 'book', label: 'book' },
+          { id: 'r3', group: 'ruler', label: 'ruler' },
+          { id: 'r4', group: 'scissors', label: 'scissors' },
+          { id: 'r5', group: 'bag', label: 'bag' },
+          { id: 'r6', group: 'pen', label: 'pen' }
+        ]
+      },
+      {
+        id: 'english-4-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: '✏️ → {}', options: ['pencil', 'book', 'pen'], answer: 'pencil' },
+          { id: 'q2', text: '📖 → {}', options: ['ruler', 'book', 'bag'], answer: 'book' },
+          { id: 'q3', text: '📏 → {}', options: ['ruler', 'scissors', 'pen'], answer: 'ruler' },
+          { id: 'q4', text: '✂️ → {}', options: ['bag', 'scissors', 'book'], answer: 'scissors' },
+          { id: 'q5', text: '🎒 → {}', options: ['bag', 'pencil', 'ruler'], answer: 'bag' },
+          { id: 'q6', text: '🖊️ → {}', options: ['pen', 'pencil', 'book'], answer: 'pen' }
+        ]
+      },
+      {
+        id: 'english-4-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: '✏️ → {}', answer: 'pencil' },
+          { id: 'p2', text: '📖 → {}', answer: 'book' },
+          { id: 'p3', text: '📏 → {}', answer: 'ruler' },
+          { id: 'p4', text: '✂️ → {}', answer: 'scissors' },
+          { id: 'p5', text: '🎒 → {}', answer: 'bag' },
+          { id: 'p6', text: '🖊️ → {}', answer: 'pen' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'english-5',
+    subject: 'english',
+    index: 5,
+    title: 'Family & Pets',
+    subtitle: 'Familie und Haustiere',
+    emoji: '👨‍👩‍👧',
+    exercises: [
+      {
+        id: 'english-5-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'mother', label: '👩' },
+          { id: 'l2', group: 'father', label: '👨' },
+          { id: 'l3', group: 'sister', label: '👧' },
+          { id: 'l4', group: 'brother', label: '👦' },
+          { id: 'l5', group: 'dog', label: '🐶' },
+          { id: 'l6', group: 'cat', label: '🐱' }
+        ],
+        right: [
+          { id: 'r1', group: 'mother', label: 'mother' },
+          { id: 'r2', group: 'father', label: 'father' },
+          { id: 'r3', group: 'sister', label: 'sister' },
+          { id: 'r4', group: 'brother', label: 'brother' },
+          { id: 'r5', group: 'dog', label: 'dog' },
+          { id: 'r6', group: 'cat', label: 'cat' }
+        ]
+      },
+      {
+        id: 'english-5-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie heißt das auf Englisch?',
+        questions: [
+          { id: 'q1', text: '🐶 → {}', options: ['dog', 'cat', 'father'], answer: 'dog' },
+          { id: 'q2', text: '👩 → {}', options: ['mother', 'sister', 'cat'], answer: 'mother' },
+          { id: 'q3', text: '👦 → {}', options: ['brother', 'father', 'dog'], answer: 'brother' },
+          { id: 'q4', text: '🐱 → {}', options: ['cat', 'dog', 'sister'], answer: 'cat' },
+          { id: 'q5', text: '👨 → {}', options: ['father', 'brother', 'mother'], answer: 'father' },
+          { id: 'q6', text: '👧 → {}', options: ['sister', 'mother', 'brother'], answer: 'sister' }
+        ]
+      },
+      {
+        id: 'english-5-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie heißt das auf Englisch?',
+        problems: [
+          { id: 'p1', text: '🐶 → {}', answer: 'dog' },
+          { id: 'p2', text: '🐱 → {}', answer: 'cat' },
+          { id: 'p3', text: '👩 → {}', answer: 'mother' },
+          { id: 'p4', text: '👨 → {}', answer: 'father' },
+          { id: 'p5', text: '👧 → {}', answer: 'sister' },
+          { id: 'p6', text: '👦 → {}', answer: 'brother' }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'english-6',
+    subject: 'english',
+    index: 6,
+    title: 'Weather',
+    subtitle: 'Wie ist das Wetter?',
+    emoji: '🌦️',
+    exercises: [
+      {
+        id: 'english-6-a',
+        type: 'connect',
+        instruction: 'Entdecke die Wörter: Verbinde Bild und englisches Wort!',
+        left: [
+          { id: 'l1', group: 'sunny', label: '☀️' },
+          { id: 'l2', group: 'rainy', label: '🌧️' },
+          { id: 'l3', group: 'cloudy', label: '☁️' },
+          { id: 'l4', group: 'snowy', label: '❄️' },
+          { id: 'l5', group: 'windy', label: '💨' },
+          { id: 'l6', group: 'rainbow', label: '🌈' }
+        ],
+        right: [
+          { id: 'r1', group: 'sunny', label: 'sunny' },
+          { id: 'r2', group: 'rainy', label: 'rainy' },
+          { id: 'r3', group: 'cloudy', label: 'cloudy' },
+          { id: 'r4', group: 'snowy', label: 'snowy' },
+          { id: 'r5', group: 'windy', label: 'windy' },
+          { id: 'r6', group: 'rainbow', label: 'rainbow' }
+        ]
+      },
+      {
+        id: 'english-6-b',
+        type: 'choice',
+        instruction: 'Lesen: Wie ist das Wetter auf Englisch?',
+        questions: [
+          { id: 'q1', text: '☀️ → {}', options: ['sunny', 'rainy', 'windy'], answer: 'sunny' },
+          { id: 'q2', text: '🌧️ → {}', options: ['cloudy', 'rainy', 'sunny'], answer: 'rainy' },
+          { id: 'q3', text: '☁️ → {}', options: ['cloudy', 'snowy', 'windy'], answer: 'cloudy' },
+          { id: 'q4', text: '❄️ → {}', options: ['snowy', 'rainy', 'sunny'], answer: 'snowy' },
+          { id: 'q5', text: '💨 → {}', options: ['windy', 'cloudy', 'rainy'], answer: 'windy' },
+          { id: 'q6', text: '🌈 → {}', options: ['rainbow', 'sunny', 'snowy'], answer: 'rainbow' }
+        ]
+      },
+      {
+        id: 'english-6-c',
+        type: 'fillText',
+        instruction: 'Schreiben: Wie ist das Wetter auf Englisch?',
+        problems: [
+          { id: 'p1', text: '☀️ → {}', answer: 'sunny' },
+          { id: 'p2', text: '🌧️ → {}', answer: 'rainy' },
+          { id: 'p3', text: '☁️ → {}', answer: 'cloudy' },
+          { id: 'p4', text: '❄️ → {}', answer: 'snowy' },
+          { id: 'p5', text: '💨 → {}', answer: 'windy' },
+          { id: 'p6', text: '🌈 → {}', answer: 'rainbow' }
+        ]
+      }
+    ]
   }
 ]
