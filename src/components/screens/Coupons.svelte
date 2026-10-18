@@ -14,9 +14,13 @@
   $: active = $profiles.profiles.find((p) => p.id === $profiles.activeId)
   $: name = active?.name ?? 'dich'
 
-  function state(c: Coupon): 'locked' | 'open' | 'redeemed' {
-    if (redeemed[c.id]) return 'redeemed'
-    return stars >= c.stars ? 'open' : 'locked'
+  function state(
+    c: Coupon,
+    st: number,
+    red: Record<string, string>
+  ): 'locked' | 'open' | 'redeemed' {
+    if (red[c.id]) return 'redeemed'
+    return st >= c.stars ? 'open' : 'locked'
   }
 
   // Einloesen-Dialog
@@ -89,7 +93,7 @@
 
   <div class="tickets">
     {#each coupons as c (c.id)}
-      {@const s = state(c)}
+      {@const s = state(c, stars, redeemed)}
       <div class="ticket" class:locked={s === 'locked'} class:redeemed={s === 'redeemed'}>
         <div class="stub">
           <span class="emoji">{s === 'locked' ? '🔒' : c.emoji}</span>
