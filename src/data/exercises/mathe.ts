@@ -724,6 +724,25 @@ export const matheTopics: Topic[] = [
           { id: 'p5', a: 70, b: 8 },
           { id: 'p6', a: 44, b: 5 }
         ]
+      },
+      {
+        id: 'mathe-8-d',
+        type: 'remainder',
+        reverse: true,
+        instruction: 'Andersherum: Finde zur Kontrolle die Geteiltaufgabe!',
+        intro:
+          'Jetzt andersherum! 🔎 Du bekommst die <b>Kontrolle</b> und suchst die passende Geteiltaufgabe.<br><br>' +
+          'Beispiel: <b>6 · 7 = 42, Rest 2</b> → die geteilte Zahl ist 42 + 2 = 44.<br>' +
+          'Also: <b>44 : 7 = 6 Rest 2</b>.<br><br>' +
+          'Tipp: Rechne Ergebnis · Teiler, dann + Rest = die Zahl, die geteilt wird.',
+        problems: [
+          { id: 'p1', a: 44, b: 7 },
+          { id: 'p2', a: 43, b: 5 },
+          { id: 'p3', a: 25, b: 8 },
+          { id: 'p4', a: 38, b: 6 },
+          { id: 'p5', a: 59, b: 9 },
+          { id: 'p6', a: 47, b: 8 }
+        ]
       }
     ]
   }

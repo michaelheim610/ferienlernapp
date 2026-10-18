@@ -131,5 +131,6 @@ export interface RemainderProblem { id: string; a: number; b: number }
 export interface RemainderExercise extends Base {
   type: 'remainder'
   intro?: string // kurze Erklaerung oben
+  reverse?: boolean // true: aus der Kontrolle die Geteiltaufgabe finden (Aufgabe 3)
   problems: RemainderProblem[]
 }

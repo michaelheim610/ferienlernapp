@@ -16,12 +16,18 @@
   const rest = (p: RemainderProblem) => p.a % p.b
   const prod = (p: RemainderProblem) => q(p) * p.b // = a - rest
 
-  const fieldKeys = exercise.problems.flatMap((p) => [`${p.id}-q`, `${p.id}-r`, `${p.id}-prod`])
+  const REV = !!exercise.reverse
+
+  // Vorwaerts: fuelle q, r, dann Kontrolle prod.  Rueckwaerts: fuelle a, q, r.
+  const fieldKeys = exercise.problems.flatMap((p) =>
+    REV ? [`${p.id}-a`, `${p.id}-q`, `${p.id}-r`] : [`${p.id}-q`, `${p.id}-r`, `${p.id}-prod`]
+  )
   let active = fieldKeys[0] ?? ''
 
   function targetOf(key: string): string {
     const [pid, field] = key.split('-')
     const p = exercise.problems.find((x) => x.id === pid)!
+    if (field === 'a') return String(p.a)
     if (field === 'q') return String(q(p))
     if (field === 'r') return String(rest(p))
     return String(prod(p))
@@ -29,6 +35,7 @@
 
   // Kontroll-Feld (prod) erst freigeben, wenn die Division (q & r) stimmt.
   function fillable(key: string): boolean {
+    if (REV) return true
     const [pid, field] = key.split('-')
     if (field === 'prod') return !!correct[`${pid}-q`] && !!correct[`${pid}-r`]
     return true
@@ -87,34 +94,61 @@
 
   <div class="cards">
     {#each exercise.problems as p (p.id)}
+      {@const aKey = `${p.id}-a`}
       {@const qKey = `${p.id}-q`}
       {@const rKey = `${p.id}-r`}
       {@const pKey = `${p.id}-prod`}
-      {@const divDone = correct[qKey] && correct[rKey]}
-      <div class="prob" class:done={correct[pKey]}>
-        <!-- Links: Division mit Rest -->
-        <div class="line">
-          <span class="big">{p.a} : {p.b} =</span>
-          <button class="box" class:filled={correct[qKey]} class:wrong={wrong[qKey]} class:active={active === qKey} on:click={() => pick(qKey)}>
-            {correct[qKey] ? q(p) : (values[qKey] ?? '')}
-          </button>
-          <span class="rest-lbl">Rest</span>
-          <button class="box" class:filled={correct[rKey]} class:wrong={wrong[rKey]} class:active={active === rKey} on:click={() => pick(rKey)}>
-            {correct[rKey] ? rest(p) : (values[rKey] ?? '')}
-          </button>
+      {#if REV}
+        {@const allC = correct[aKey] && correct[qKey] && correct[rKey]}
+        <div class="prob" class:done={allC}>
+          <!-- Oben: Kontrolle vorgegeben -->
+          <div class="line hint-line">
+            <span class="klabel">Kontrolle:</span>
+            <span class="big">{q(p)} · {p.b} = {prod(p)}</span>
+            <span class="rest-lbl">Rest {rest(p)}</span>
+          </div>
+          <!-- Unten: gesuchte Geteiltaufgabe -->
+          <div class="line">
+            <button class="box" class:filled={correct[aKey]} class:wrong={wrong[aKey]} class:active={active === aKey} on:click={() => pick(aKey)}>
+              {correct[aKey] ? p.a : (values[aKey] ?? '')}
+            </button>
+            <span class="big">: {p.b} =</span>
+            <button class="box" class:filled={correct[qKey]} class:wrong={wrong[qKey]} class:active={active === qKey} on:click={() => pick(qKey)}>
+              {correct[qKey] ? q(p) : (values[qKey] ?? '')}
+            </button>
+            <span class="rest-lbl">Rest</span>
+            <button class="box" class:filled={correct[rKey]} class:wrong={wrong[rKey]} class:active={active === rKey} on:click={() => pick(rKey)}>
+              {correct[rKey] ? rest(p) : (values[rKey] ?? '')}
+            </button>
+          </div>
         </div>
+      {:else}
+        {@const divDone = correct[qKey] && correct[rKey]}
+        <div class="prob" class:done={correct[pKey]}>
+          <!-- Links: Division mit Rest -->
+          <div class="line">
+            <span class="big">{p.a} : {p.b} =</span>
+            <button class="box" class:filled={correct[qKey]} class:wrong={wrong[qKey]} class:active={active === qKey} on:click={() => pick(qKey)}>
+              {correct[qKey] ? q(p) : (values[qKey] ?? '')}
+            </button>
+            <span class="rest-lbl">Rest</span>
+            <button class="box" class:filled={correct[rKey]} class:wrong={wrong[rKey]} class:active={active === rKey} on:click={() => pick(rKey)}>
+              {correct[rKey] ? rest(p) : (values[rKey] ?? '')}
+            </button>
+          </div>
 
-        <!-- Rechts/unten: Kontrolle = Umkehraufgabe -->
-        <div class="line kontrolle" class:ready={divDone}>
-          <span class="klabel">Kontrolle:</span>
-          <span class="qmirror">{divDone ? q(p) : '?'}</span>
-          <span class="big">· {p.b} =</span>
-          <button class="box" class:filled={correct[pKey]} class:wrong={wrong[pKey]} class:active={active === pKey} disabled={!divDone} on:click={() => pick(pKey)}>
-            {correct[pKey] ? prod(p) : (values[pKey] ?? '')}
-          </button>
-          {#if correct[pKey]}<span class="check-note">+ {rest(p)} = {p.a} ✓</span>{/if}
+          <!-- Rechts/unten: Kontrolle = Umkehraufgabe -->
+          <div class="line kontrolle" class:ready={divDone}>
+            <span class="klabel">Kontrolle:</span>
+            <span class="qmirror">{divDone ? q(p) : '?'}</span>
+            <span class="big">· {p.b} =</span>
+            <button class="box" class:filled={correct[pKey]} class:wrong={wrong[pKey]} class:active={active === pKey} disabled={!divDone} on:click={() => pick(pKey)}>
+              {correct[pKey] ? prod(p) : (values[pKey] ?? '')}
+            </button>
+            {#if correct[pKey]}<span class="check-note">+ {rest(p)} = {p.a} ✓</span>{/if}
+          </div>
         </div>
-      </div>
+      {/if}
     {/each}
   </div>
 
@@ -182,6 +216,12 @@
     font-size: 1.1rem;
   }
   .kontrolle:not(.ready) { opacity: 0.55; }
+  .hint-line {
+    background: var(--card-soft);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+  }
   .klabel { color: var(--violet-dark); font-weight: 800; }
   .qmirror {
     min-width: 34px;
